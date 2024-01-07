@@ -1,0 +1,127 @@
+/* COLOR PALETTE
+   background-color: black;
+   border: #1e1616 3px solid;
+   background-color: #1e1616;
+   --> brown/red
+ */
+
+/*** BODY CSS ****/
+/* TODO = change into a black pixel art image background*/
+body {
+  background-color: black;
+  color: white;
+}
+
+/*** HEADER CSS ****/
+header {
+  display: flex;
+  margin: 30px auto 50px auto;
+  width: 85%;
+}
+
+/*.Logo styling*/
+.logo{
+  width: 30%;
+}
+
+.logo img {
+  height: 50px;
+  width: 50px;
+}
+
+/* Styling for topNav - menubar */
+.topNav {
+  width: 70%;
+}
+
+.topNav ul {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  text-decoration: none;
+  padding: 0;
+}
+
+.topNav ul a {
+  color: white;
+  text-decoration: none;
+  border: #1e1616 2px solid;
+  border-radius: 40px;
+  margin: 0 10px;
+}
+
+.topNav ul li {
+  padding: 12px 20px;
+  display: flex;
+}
+
+.topNav img {
+  width: 20px;
+  height: 20px;
+  padding-right: 10px;
+}
+
+/*dynamics for topnav*/
+.topNav a {
+  transition: background-color 0.3s ease-in-out;
+  transition-delay: 100ms;
+}
+
+.topNav a:hover {
+  background-color: #1e1616;
+}
+
+/*** MAIN CSS ***/
+main {
+  width: 80%;
+  height: auto;
+  margin: 80px auto 100px auto;
+}
+
+/*  header > Welcome Page Css */
+
+.welcomePage {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+.welcomePage > #welcomeText{
+  width: 60%;
+  text-align: center;
+}
+
+.welcomePage > #profilePicture{
+  width: 20%;
+}
+
+/* *** FOOTER CSS *** */
+.mainFooter {
+  color: white;
+  width: 20px;
+  margin: 0 auto;
+}
+
+.mainFooter ul {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  text-decoration: none;
+  padding: 0;
+}
+
+.mainFooter ul li {
+  margin: 0 10px;
+  padding: 12px 20px;
+  display: flex;
+}
+
+.mainFooter ul img{
+  width: 20px;
+  height: 20px;
+  padding-right: 10px;
+}
+
+
+
+
