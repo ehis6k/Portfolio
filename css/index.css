@@ -6,121 +6,167 @@
  */
 
 /*** BODY CSS ****/
-/* TODO = change into a black pixel art image background*/
 body {
-  background-color: black;
-  color: white;
+    background-color: black;
+    color: #e1d7d7;
+    font-family: 'Open Sans', sans-serif;
 }
 
 /*** HEADER CSS ****/
 header {
-  display: flex;
-  margin: 30px auto 50px auto;
-  width: 85%;
+    display: flex;
+    margin: 20px auto 20px auto;
+    width: 85%;
 }
 
 /*.Logo styling*/
-.logo{
-  width: 30%;
+.logo {
+    width: 30%;
 }
 
 .logo img {
-  height: 50px;
-  width: 50px;
+    height: 50px;
+    width: 50px;
 }
 
 /* Styling for topNav - menubar */
 .topNav {
-  width: 70%;
+    width: 70%;
 }
 
 .topNav ul {
-  display: flex;
-  justify-content: space-around;
-  list-style-type: none;
-  text-decoration: none;
-  padding: 0;
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    text-decoration: none;
+    padding: 0;
 }
 
 .topNav ul a {
-  color: white;
-  text-decoration: none;
-  border: #1e1616 2px solid;
-  border-radius: 40px;
-  margin: 0 10px;
+    color: white;
+    text-decoration: none;
+    border: #130909 1px solid;
+    border-radius: 40px;
+    margin: 0 10px;
 }
 
 .topNav ul li {
-  padding: 12px 20px;
-  display: flex;
+    padding: 12px 20px;
+    display: flex;
 }
 
 .topNav img {
-  width: 20px;
-  height: 20px;
-  padding-right: 10px;
+    width: 20px;
+    height: 20px;
+    padding-right: 10px;
 }
 
 /*dynamics for topnav*/
 .topNav a {
-  transition: background-color 0.3s ease-in-out;
-  transition-delay: 100ms;
+    transition: background-color 0.3s ease-in-out;
+    transition-delay: 100ms;
 }
 
 .topNav a:hover {
-  background-color: #1e1616;
+    background-color: #130909;
 }
 
 /*** MAIN CSS ***/
-main {
-  width: 80%;
-  height: auto;
-  margin: 80px auto 100px auto;
+.mainContent {
+    width: 100%;
+    height: auto;
+    margin: 1rem auto 3rem auto;
+    background-color: #000000;
+    opacity: 1;
+    background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #000000 40px ), repeating-linear-gradient( #13090955, #130909 );
+}
+
+main section {
+    height: auto;
 }
 
 /*  header > Welcome Page Css */
 
 .welcomePage {
-  display: flex;
-  justify-content: center;
-  margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    margin: 1rem auto 12rem auto;
 }
 
-.welcomePage > #welcomeText{
-  width: 60%;
-  text-align: center;
+.welcomePage > #welcomeText {
+    width: 40%;
+    text-align: center;
+    margin-top: 1rem;
 }
 
-.welcomePage > #profilePicture{
-  width: 20%;
+.welcomePage > #welcomeText > h1 {
+    font-size: 80px;
+    text-transform: uppercase;
+    font-family: 'Gambetta', serif;
+    letter-spacing: -3px;
+    transition: 700ms ease;
+    font-variation-settings: "wght" 311;
+    margin-bottom: 0.8rem;
+    color: #e1d7d7;
+    outline: none;
+    text-align: center;
 }
+
+.welcomePage > #welcomeText > h1:hover {
+    font-variation-settings: "wght" 582;
+    letter-spacing: 1px;
+}
+
+
+.welcomePage > #profilePicture {
+    width: 25%;
+    margin-top: 5rem;
+}
+
+/* Sections - Projects, About Me, Contact, Other */
+
+#Projects, #AboutMe, #Contact, #Other {
+    display: block;
+    width: 80%;
+    border-top : #191919 1px solid;
+    margin: 0 auto 4rem auto;
+}
+
+#Projects > h1, #AboutMe > h1, #Contact > h1, #Other > h1 {
+    text-align: center;
+    margin: 4rem auto 2rem auto;
+}
+
+
 
 /* *** FOOTER CSS *** */
 .mainFooter {
-  color: white;
-  width: 20px;
-  margin: 0 auto;
+    color: white;
+    width: 20%;
+    margin: 0 auto;
 }
 
 .mainFooter ul {
-  display: flex;
-  justify-content: space-around;
-  list-style-type: none;
-  text-decoration: none;
-  padding: 0;
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    text-decoration: none;
 }
 
-.mainFooter ul li {
-  margin: 0 10px;
-  padding: 12px 20px;
-  display: flex;
+.mainFooter ul img {
+    width: 2rem;
+    height: 20px;
+    padding-right: 20px;
+    margin-right: 2rem;
 }
 
-.mainFooter ul img{
-  width: 20px;
-  height: 20px;
-  padding-right: 10px;
+.mainFooter a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
 }
+
 
 
 
