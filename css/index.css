@@ -15,8 +15,8 @@ body {
 /*** HEADER CSS ****/
 header {
     display: flex;
-    margin: 20px auto 20px auto;
-    width: 85%;
+    margin: 10px auto 20px auto;
+    width: 95%;
 }
 
 /*.Logo styling*/
@@ -32,6 +32,9 @@ header {
 /* Styling for topNav - menubar */
 .topNav {
     width: 70%;
+    font-size: smaller;
+    justify-content: end;
+    display: flex;
 }
 
 .topNav ul {
@@ -47,7 +50,9 @@ header {
     text-decoration: none;
     border: #130909 1px solid;
     border-radius: 40px;
-    margin: 0 10px;
+    margin: 0 20px;
+    display: flex;
+    align-items: center;
 }
 
 .topNav ul li {
