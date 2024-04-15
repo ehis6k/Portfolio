@@ -15,13 +15,14 @@ body {
 /*** HEADER CSS ****/
 header {
     display: flex;
-    margin: 10px auto 20px auto;
-    width: 95%;
+    margin: 10px auto 0 auto;
+    width: 85%;
+    justify-content: space-between;
 }
 
 /*.Logo styling*/
 .logo {
-    width: 30%;
+    width: 10%;
 }
 
 .logo img {
@@ -31,7 +32,6 @@ header {
 
 /* Styling for topNav - menubar */
 .topNav {
-    width: 70%;
     font-size: smaller;
     justify-content: end;
     display: flex;
@@ -48,16 +48,20 @@ header {
 .topNav ul a {
     color: white;
     text-decoration: none;
-    border: #130909 1px solid;
-    border-radius: 40px;
+    padding-bottom: 0;
     margin: 0 20px;
     display: flex;
     align-items: center;
 }
 
 .topNav ul li {
-    padding: 12px 20px;
+    padding: 7px;
     display: flex;
+    align-items: center;
+}
+
+.topNav ul li p {
+    display: none;
 }
 
 .topNav img {
@@ -73,59 +77,59 @@ header {
 }
 
 .topNav a:hover {
-    background-color: #130909;
+    transition: 1s ease-in-out;
+    border-bottom: 1px solid #e1d7d7;
 }
+
+.topNav ul li:hover p {
+    display: block;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Adjust the timing function for a smoother transition */
+}
+
+/* TODO : Deside if this is a good design choice */
+/*.contact {*/
+/*    border: #d69042 1px solid;*/
+/*    border-radius: 20px;*/
+/*    width: 10%;*/
+/*}*/
+
+/*.contact a {*/
+/*    color: white;*/
+/*    text-decoration: none;*/
+/*    padding-bottom: 0;*/
+/*    margin: 0 20px;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    font-size: 0.8rem;*/
+/*}*/
+
+/*.contact a img {*/
+/*    width: 20px;*/
+/*    height: 20px;*/
+/*    padding: 0 10px 0 0;*/
+/*}*/
+
+
+
 
 /*** MAIN CSS ***/
 .mainContent {
     width: 100%;
     height: auto;
-    margin: 1rem auto 3rem auto;
-    background-color: #000000;
     opacity: 1;
-    background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #000000 40px ), repeating-linear-gradient( #13090955, #130909 );
 }
 
 main section {
     height: auto;
 }
 
-/*  header > Welcome Page Css */
-
-.welcomePage {
-    display: flex;
-    justify-content: center;
-    margin: 1rem auto 12rem auto;
-}
-
-.welcomePage > #welcomeText {
-    width: 40%;
-    text-align: center;
-    margin-top: 1rem;
-}
-
-.welcomePage > #welcomeText > h1 {
-    font-size: 80px;
-    text-transform: uppercase;
-    font-family: 'Gambetta', serif;
-    letter-spacing: -3px;
-    transition: 700ms ease;
-    font-variation-settings: "wght" 311;
-    margin-bottom: 0.8rem;
-    color: #e1d7d7;
-    outline: none;
-    text-align: center;
-}
-
-.welcomePage > #welcomeText > h1:hover {
-    font-variation-settings: "wght" 582;
-    letter-spacing: 1px;
-}
-
-
-.welcomePage > #profilePicture {
-    width: 25%;
-    margin-top: 5rem;
+#welcomePage img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    margin: 0;
+    padding: 0;
 }
 
 /* Sections - Projects, About Me, Contact, Other */
