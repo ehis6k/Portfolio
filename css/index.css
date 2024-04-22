@@ -72,9 +72,7 @@ header {
 
 /*dynamics for topnav*/
 .topNav a {
-    transition: background-color 0.3s ease-in-out;
-    transition-delay: 100ms;
-}
+    transition: background-gitgit
 
 .topNav a:hover {
     transition: 1s ease-in-out;
