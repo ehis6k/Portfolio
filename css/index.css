@@ -1,0 +1,150 @@
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: white;
+    height: 100%;
+}
+
+.section{
+    height: auto;
+}
+
+/* WELCOME SECTION */
+/* Css for the banner */
+#indexSection {
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+
+.indexBanner {
+    width: 80%;
+    height: 10vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #1B1B1B;
+    border-bottom-right-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+}
+
+.indexBanner #hotLinks{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}   
+
+.indexBanner a{
+    color: #9C9C9C;
+    text-decoration: none;
+    font-family: 'IBM Plex Mono';
+    font-size: 14px;
+}
+
+.indexBanner #externalLinks{
+    width: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}   
+
+/* Css for middle of Landing  */
+#mainIndexSection {
+    margin: 9vh;
+    width: 55%;
+    display: flex;
+    align-items: center;
+}
+
+#mainIndexSection #leftside {
+    align-items: flex-start;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 29.594594955444336px;
+    justify-content: center; 
+}
+
+#mainIndexSection #leftSide h1{
+    color: white;
+    font-family : 'Raleway';
+    font-size: 43.31px;
+}
+
+#mainIndexSection #leftSide p{
+    margin: 5vh 0 5vh 0; 
+    color: #9C9C9C;
+    width: 71%;
+    font-family: 'IBM Plex Mono';
+}
+
+#mainIndexSection #leftSide button {
+    align-items: center;
+    background-color: #3f8e00;
+    border: 0.1vw solid;
+    border-color: #62ba1b;
+    border-radius: 0.3vw;
+    box-shadow: 0px 1.5vh 3vh #3f8e0080;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 1vw;
+    padding: 0.2vh 4vw;
+    position: relative;
+    height: 10vh;
+}
+
+#mainIndexSection #leftSide button p {
+    background-color: transparent;
+    color: white;
+    font-family: 'IBM Plex Mono';
+    font-size: 2em; /* Assuming base font size is 16px, this equals to 16px */
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 0px;
+    line-height: normal;
+    position: relative;
+    text-align: left;
+    width: fit-content;
+}
+
+#mainIndexSection #rightSide img {
+    height: 60vh;
+    width: 20vw;
+}
+
+
+/* css for the scroller of landing page */
+#technologyScroller {
+    display: flex;
+    justify-content: space-around;
+    width: 70%;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.techItem {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    margin-right: 10px;
+    color: #525252;
+    border-radius: 5px;
+    border: 1px solid #1B1B1B;
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
+}
+
+.techItem:hover {
+    transform: scale(1.1);
+}
+
+.techItem p{
+    font-family: 'IBM Plex Mono', monospace;
+}
