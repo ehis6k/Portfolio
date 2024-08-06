@@ -44,6 +44,6 @@ For any questions or inquiries, please contact Gabriel Uwaila through the follow
 
 - GitHub: [github.com](github.com)
 - LinkedIn: [linkedin.com](https://www.linkedin.com/in/gabriel-uwaila-183780242/)
-- KDG: [kdg.be](https://www.kdg.be/en/applied-computer-science)
+- KDG: [gabbriel.uwaila@student.kdg.be](https://www.kdg.be/en/applied-computer-science)
 
 Thank you for your interest in the portfolio project!

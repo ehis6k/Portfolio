@@ -54,7 +54,7 @@ body{
 
 /* Css for middle of Landing  */
 #mainIndexSection {
-    margin: 9vh;
+    margin: 16.5vh;
     width: 55%;
     display: flex;
     align-items: center;
@@ -112,7 +112,7 @@ body{
 }
 
 #mainIndexSection #rightSide img {
-    height: 60vh;
+    height: 43vh;
     width: 20vw;
 }
 
@@ -148,3 +148,54 @@ body{
 .techItem p{
     font-family: 'IBM Plex Mono', monospace;
 }
+
+
+/* About Section */
+#aboutMeSection{
+    padding: 5% 20% 5% 20%; 
+}
+
+.aboutTop{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.aboutTop h1{
+    font-family: 'Raleway';
+    font-size: 34;
+    font-weight: 800;
+}
+
+.aboutTop p{
+    color: #9C9C9C;
+    font-family: 'IBM Plex Mono';
+    font-size: 14;
+}
+
+.containerAbout{ 
+    margin-top: 10vh;
+    margin-bottom: 6vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+}
+
+#studentWork .bubble{
+    background-color: #fde9ffab;
+    color: rgb(255, 156, 252);
+    display: flex;
+    justify-content: center;
+    font-family: 'IBM Plex Mono';
+    font-size: 12;
+    font-weight: bold;
+    border-radius: 60%;
+    width: 60%;
+}
+
+.aboutPhoto img{
+    height: 30vh;
+    width: 40vh;
+    border-radius: 2%;
+}
+
