@@ -42,7 +42,7 @@ body{
     color: #9C9C9C;
     text-decoration: none;
     font-family: 'IBM Plex Mono';
-    font-size: 14px;
+    font-size: .8rem;
 }
 
 .indexBanner #externalLinks{
@@ -58,6 +58,7 @@ body{
     width: 55%;
     display: flex;
     align-items: center;
+
 }
 
 #mainIndexSection #leftside {
@@ -65,14 +66,13 @@ body{
     background-color: transparent;
     display: flex;
     flex-direction: column;
-    gap: 29.594594955444336px;
     justify-content: center; 
 }
 
 #mainIndexSection #leftSide h1{
     color: white;
     font-family : 'Raleway';
-    font-size: 43.31px;
+    font-size: 4rem;
 }
 
 #mainIndexSection #leftSide p{
@@ -104,7 +104,6 @@ body{
     font-size: 2em; /* Assuming base font size is 16px, this equals to 16px */
     font-style: normal;
     font-weight: 600;
-    letter-spacing: 0px;
     line-height: normal;
     position: relative;
     text-align: left;
@@ -124,22 +123,22 @@ body{
     width: 70%;
     overflow-x: auto;
     white-space: nowrap;
-    padding: 20px;
-    margin: 20px 0;
+    margin-bottom: 5rem;
 }
 
 .techItem {
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
-    margin-right: 10px;
+    padding: 0.625rem 1.25rem; /* 10px -> 0.625rem, 20px -> 1.25rem */
+    margin-right: 0.625rem;    /* 10px -> 0.625rem */
     color: #525252;
-    border-radius: 5px;
-    border: 1px solid #1B1B1B;
+    border-radius: 0.3125rem;  /* 5px -> 0.3125rem */
+    border: 0.0625rem solid #1B1B1B; /* 1px -> 0.0625rem */
     font-size: 1.2em;
     transition: transform 0.3s ease;
 }
+
 
 .techItem:hover {
     transform: scale(1.1);
@@ -152,7 +151,7 @@ body{
 
 /* About Section */
 #aboutMeSection{
-    padding: 5% 20% 5% 20%; 
+    padding: 5% 19%; 
 }
 
 .aboutTop{
@@ -173,6 +172,15 @@ body{
     font-size: 14;
 }
 
+/* Containers for about Overall*/
+
+#leftText, #rightText {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+
 .containerAbout{ 
     margin-top: 10vh;
     margin-bottom: 6vh;
@@ -181,21 +189,120 @@ body{
     justify-content: space-between; 
 }
 
-#studentWork .bubble{
-    background-color: #fde9ffab;
-    color: rgb(255, 156, 252);
-    display: flex;
-    justify-content: center;
-    font-family: 'IBM Plex Mono';
-    font-size: 12;
-    font-weight: bold;
-    border-radius: 60%;
-    width: 60%;
+.containerAbout p {
+    width: 85%;
+}
+
+.containerAbout .bubble p {
+    width: 100%;
+}
+
+.containerAbout #rightText p{
+    text-align: end;
 }
 
 .aboutPhoto img{
-    height: 30vh;
-    width: 40vh;
+    height: 40vh;
+    width: 30vw;
     border-radius: 2%;
 }
 
+#aboutMeSection .bubble{
+    font-size: small;
+    display: flex;
+    justify-content: center;
+    font-family: 'IBM Plex Mono';
+    font-weight: bold;
+    border-radius: 20px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    width: fit-content;
+}
+
+#aboutMeSection h1{
+    font-family: 'raleway';
+    font-size: 2.4em;
+    font-weight: 800;
+
+}
+
+#aboutMeSection p{
+    color: #9C9C9C;
+    font-family: 'IBM Plex Mono';
+}
+
+#aboutMeSection button {
+    border: 0.1vw solid;
+    border-radius: 0.3vw;
+    padding: 0.2vh 4vw;
+    position: relative;
+    width: 70%;
+    margin-top: 2rem;
+}
+
+.viewProjects {
+    width: fit-content;
+}
+
+.viewProjects h4 {
+    color: white;
+    font-family: 'IBM Plex Mono';
+    font-size: 1.2em; /* Assuming base font size is 16px, this equals to 16px */
+    line-height: normal;
+    position: relative;
+}
+
+
+/* Containers for about specific */
+
+    /* First subcontainer */
+
+    #studentWork .bubble{
+        background-color: #fde9ffab;
+    }
+
+    #studentWork .bubble p{
+        color: #ff17e4;
+    }
+
+    #studentWork button {
+        background-color: #cc16b7;
+        border-color: #ef1ad6;
+        box-shadow: 0px 1.5vh 3vh #600856;
+    }
+
+    /* Second subcontainer */
+
+    #audioVideo #rightText {
+        align-items: end;
+    }
+
+    #audioVideo .bubble{
+        background-color: #9c74a02d;
+    }
+
+    #audioVideo .bubble p{
+        color: #45093e;
+    }
+
+    #audioVideo button {
+        background-color: #8f007e;
+        border-color: #a0038e;
+        box-shadow: 0px 1.5vh 3vh rgb(27, 3, 24);
+    }
+
+    /* Third Subcontainer */
+
+    #contentCreation .bubble{
+        background-color: #adbdbc;
+    }
+
+    #contentCreation .bubble p{
+        color: #0D1917;
+    }
+
+    #contentCreation button {
+        background-color: #081F21;
+        border-color: #0e3438;
+        box-shadow: 0px 1.5vh 3vh #030c0d;
+    }
