@@ -42,7 +42,7 @@ body{
     color: #9C9C9C;
     text-decoration: none;
     font-family: 'IBM Plex Mono';
-    font-size: .8rem;
+    font-size: 0.9rem;
 }
 
 .indexBanner #externalLinks{
@@ -162,14 +162,14 @@ body{
 
 .aboutTop h1{
     font-family: 'Raleway';
-    font-size: 34;
+    font-size: 4rem;
     font-weight: 800;
 }
 
 .aboutTop p{
     color: #9C9C9C;
     font-family: 'IBM Plex Mono';
-    font-size: 14;
+    font-size: 1em;
 }
 
 /* Containers for about Overall*/
@@ -231,25 +231,19 @@ body{
     font-family: 'IBM Plex Mono';
 }
 
-#aboutMeSection button {
-    border: 0.1vw solid;
-    border-radius: 0.3vw;
-    padding: 0.2vh 4vw;
-    position: relative;
-    width: 70%;
-    margin-top: 2rem;
-}
-
-.viewProjects {
-    width: fit-content;
-}
-
-.viewProjects h4 {
+.containerAbout button {
     color: white;
     font-family: 'IBM Plex Mono';
     font-size: 1.2em; /* Assuming base font size is 16px, this equals to 16px */
     line-height: normal;
     position: relative;
+    border: 0.1vw solid;
+    border-radius: 0.3vw;
+    padding: 2%;
+    position: relative;
+    width: 70%;
+    margin-top: 2rem;
+    font-weight: 600;
 }
 
 
@@ -306,3 +300,82 @@ body{
         border-color: #0e3438;
         box-shadow: 0px 1.5vh 3vh #030c0d;
     }
+
+
+/* recentWork Styling */
+
+#recentWork {
+   background-color: black;
+   padding: 5%;
+}
+
+#recentWork .recentWorkHead{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#recentWork .recentWorkHead h1{
+    color:white;
+    font-family: 'Raleway';
+    font-weight: bolder;
+    font-size: 2.4rem;
+}
+
+#recentWork .recentWorkHead p{
+    text-align: center;
+    width: 70%;
+}
+
+#recentWork .recentWorkHead p, .recentWorkContainer p{
+    color: #9C9C9C;
+    font-family: 'IBM Plex Mono';
+    font-size: 1em;
+}
+
+#recentWork .recentWorkContainer{
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 5%;
+}
+
+.recentWorkContainer .container{
+    width: 25%;
+}
+
+.recentWorkContainer img{
+    height: 30vh;
+    width: 25vw;
+    border-radius: 2%;
+}
+
+.recentWorkContainer .text{
+    margin-top: 1rem;
+}
+
+.recentWorkContainer h1{
+    color:white;
+    font-family: 'Raleway';
+    font-weight: bolder;
+    font-size: 1.4rem;
+    margin: 2rem 0rem 2rem 0rem;
+}
+
+.recentWorkContainer button{
+    color: white;
+    font-family: 'IBM Plex Mono';
+    font-size: 1.2em; /* Assuming base font size is 16px, this equals to 16px */
+    font-weight: 600;
+    line-height: normal;
+    position: relative;
+    background-color: #3f8e00;
+    border: 0.1vw solid;
+    border-color: #62ba1b;
+    border-radius: 0.3vw;
+    box-shadow: 0px 1.5vh 3vh #3f8e0080;
+    padding: 2%;
+    margin-top: 1rem;
+}
+
