@@ -37,19 +37,25 @@ const Skills = () => {
     {
       title: 'Languages',
       icon: Code,
-      skills: ['TypeScript', 'JavaScript', 'C#', 'Java', 'Python', 'SQL', 'HTML/CSS'],
+      skills: ['TypeScript', 'JavaScript', 'C#', 'Java', 'Python', 'SQL', 'HTML5', 'CSS3', 'C'],
       gradient: 'from-blue-500 to-blue-600'
     },
     {
-      title: 'Dev Tools',
+      title: 'Frameworks & Libraries',
       icon: Settings,
-      skills: ['React', 'Next.js', 'Node.js', 'Express', 'Spring Boot', '.NET', 'Blazor', 'TailwindCSS'],
+      skills: ['React', 'Next.js', 'Node.js', 'Express', 'Spring Boot', '.NET', 'Blazor', 'Bootstrap', 'TailwindCSS', 'Chart.js'],
       gradient: 'from-slate-500 to-slate-600'
     },
     {
-      title: 'Infra / DevOps',
+      title: 'Databases & Cloud',
+      icon: Database,
+      skills: ['PostgreSQL', 'MS SQL Server', 'MongoDB', 'Azure', 'Vercel', 'Netlify'],
+      gradient: 'from-green-500 to-green-600'
+    },
+    {
+      title: 'DevOps & Tools',
       icon: Cloud,
-      skills: ['Docker', 'Git', 'GitHub Actions', 'Azure', 'Vercel', 'Netlify', 'PostgreSQL', 'MongoDB', 'Bash'],
+      skills: ['Docker', 'Git', 'GitHub Actions', 'Linux', 'Arduino', 'Bash'],
       gradient: 'from-blue-600 to-indigo-600'
     }
   ]
@@ -73,7 +79,7 @@ const Skills = () => {
         </FadeIn>
 
         <StaggeredFadeIn delay={0.3}>
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-2 xl:grid-cols-4 gap-8">
             {skillCategories.map((category, index) => {
               const IconComponent = category.icon
               return (
