@@ -79,16 +79,16 @@ const Header = () => {
               {/* Mobile Menu Content */}
               <div className="flex flex-col h-full">
                 {/* Header Section */}
-                <div className="flex flex-col space-y-6 pt-8 pb-6 border-b border-gray-800/50">
+                <div className="flex flex-col items-center text-center space-y-4 pt-8 pb-6 px-6 border-b border-gray-800/50">
                   {/* Mobile Logo */}
                   <button 
                     onClick={() => scrollToSection('hero')}
-                    className="group text-left"
+                    className="group flex flex-col items-center text-center space-y-2"
                   >
                     <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 via-white to-gray-300 bg-clip-text text-transparent group-hover:from-white group-hover:to-blue-300 transition-all duration-300">
                       Gabriel Uwaila
                     </span>
-                    <p className="text-sm text-gray-400 mt-1">Full-Stack Developer</p>
+                    <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300">Full-Stack Developer</p>
                   </button>
                 </div>
                 
