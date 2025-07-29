@@ -6,6 +6,8 @@ import { useState } from 'react'
 import {
   Sheet,
   SheetContent,
+  SheetHeader,
+  SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet'
 
@@ -70,6 +72,9 @@ const Header = () => {
               side="right" 
               className="w-80 bg-black/95 backdrop-blur-xl border-l border-gray-800/50"
             >
+              <SheetHeader>
+                <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
+              </SheetHeader>
               <div className="flex flex-col space-y-8 mt-8">
                 {/* Mobile Logo */}
                 <button 
