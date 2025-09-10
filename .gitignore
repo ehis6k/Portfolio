@@ -61,9 +61,8 @@ node_modules/
 .taskmaster
 .cursor
 
+.env
+
 # Task files
 # tasks.json
 # tasks/ 
-
-
-.env

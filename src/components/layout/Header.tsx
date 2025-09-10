@@ -25,8 +25,24 @@ const Header = () => {
     setIsOpen(false) // Close mobile menu after navigation
   }
 
+  const handleNavigation = (item: { href: string; isPage?: boolean }) => {
+    if (item.isPage) {
+      window.location.href = item.href
+    } else {
+      // Check if we're on the services page
+      if (window.location.pathname === '/services') {
+        // Navigate to home page and scroll to section
+        window.location.href = `/#${item.href}`
+      } else {
+        // We're on the home page, just scroll to section
+        scrollToSection(item.href)
+      }
+    }
+  }
+
   const navigationItems = [
     { label: 'About', href: 'about' },
+    { label: 'Services', href: '/services', isPage: true },
     { label: 'Skills', href: 'skills' },
     { label: 'Projects', href: 'projects' },
     { label: 'Contact', href: 'contact' },
@@ -38,7 +54,13 @@ const Header = () => {
         <div className="flex h-16 items-center justify-between">
           {/* Logo/Brand */}
           <button 
-            onClick={() => scrollToSection('hero')}
+            onClick={() => {
+              if (window.location.pathname === '/services') {
+                window.location.href = '/#hero'
+              } else {
+                scrollToSection('hero')
+              }
+            }}
             className="group flex items-center space-x-2"
           >
             <span className="text-xl font-bold bg-gradient-to-r from-gray-100 to-gray-300 bg-clip-text text-transparent hover:from-white hover:to-gray-200 transition-all duration-300">
@@ -51,7 +73,7 @@ const Header = () => {
             {navigationItems.map((item) => (
               <button
                 key={item.href}
-                onClick={() => scrollToSection(item.href)}
+                onClick={() => handleNavigation(item)}
                 className="relative text-gray-300 hover:text-white transition-colors duration-300 font-medium group"
               >
                 {item.label}
@@ -82,7 +104,13 @@ const Header = () => {
                 <div className="flex flex-col items-center text-center space-y-4 pt-8 pb-6 px-6 border-b border-gray-800/50">
                   {/* Mobile Logo */}
                   <button 
-                    onClick={() => scrollToSection('hero')}
+                    onClick={() => {
+                      if (window.location.pathname === '/services') {
+                        window.location.href = '/#hero'
+                      } else {
+                        scrollToSection('hero')
+                      }
+                    }}
                     className="group flex flex-col items-center text-center space-y-2"
                   >
                     <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 via-white to-gray-300 bg-clip-text text-transparent group-hover:from-white group-hover:to-blue-300 transition-all duration-300">
@@ -98,7 +126,7 @@ const Header = () => {
                     {navigationItems.map((item, index) => (
                       <button
                         key={item.href}
-                        onClick={() => scrollToSection(item.href)}
+                        onClick={() => handleNavigation(item)}
                         className="w-full group flex items-center justify-between px-4 py-4 rounded-xl text-left text-base font-medium text-gray-300 hover:text-white hover:bg-gradient-to-r hover:from-blue-600/20 hover:to-purple-600/20 transition-all duration-300 transform hover:scale-[1.02]"
                         style={{
                           animationDelay: `${index * 100}ms`

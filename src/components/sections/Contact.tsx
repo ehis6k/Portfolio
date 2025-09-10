@@ -2,6 +2,7 @@
 
 import { FadeIn, SlideUp, StaggeredFadeIn } from '@/components/ui/animated-components'
 import { Mail, Linkedin, Youtube, Github, ExternalLink, User } from 'lucide-react'
+import ContactForm from '@/components/ui/contact-form'
 
 const Contact = () => {
   const contactOptions = [
@@ -131,20 +132,23 @@ const Contact = () => {
           </div>
         </FadeIn>
 
-        {/* Call to Action */}
+        {/* Get Your Quote Section */}
         <FadeIn delay={0.8}>
-          <div className="text-center mt-16">
+          <div className="mt-16 max-w-2xl mx-auto">
             <SlideUp delay={0.9}>
-              <p className="text-lg text-gray-400 dark:text-gray-400 light:text-gray-600 mb-8">
-                Excited to hear from you and explore new opportunities together!
-              </p>
-              <a
-                href="mailto:gabriel@example.com"
-                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 hover:scale-105 group"
-              >
-                <Mail className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform duration-300" />
-                Start a Conversation
-              </a>
+              <div className="text-center mb-8">
+                <h3 className="text-3xl md:text-4xl font-bold text-gray-100 dark:text-gray-100 light:text-gray-900 mb-4">
+                  Get Your <span className="text-gradient-accent">Quote</span>
+                </h3>
+                <p className="text-lg text-gray-400 dark:text-gray-400 light:text-gray-600">
+                  Fill out the form below and I'll get back to you with a personalized quote and project details.
+                </p>
+              </div>
+            </SlideUp>
+            <SlideUp delay={1.0}>
+              <div id="get-quote">
+                <ContactForm />
+              </div>
             </SlideUp>
           </div>
         </FadeIn>
