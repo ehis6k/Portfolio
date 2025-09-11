@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { Code, Music, ArrowRight, CheckCircle } from 'lucide-react'
 import { FadeIn, SlideUp, StaggeredFadeIn } from '@/components/ui/animated-components'
-import { services, getSoftwareServices, getAudioServices, type Service } from '@/lib/services'
+import { services, getSoftwareServices, getAudioServices, getMusicServices, type Service } from '@/lib/services'
 
 const ServiceCard = ({ service, index }: { service: Service; index: number }) => {
   return (
@@ -20,21 +20,24 @@ const ServiceCard = ({ service, index }: { service: Service; index: number }) =>
           <span className="text-2xl">{service.icon}</span>
         </div>
         <div>
-          <h3 className="text-lg font-bold text-gray-100 dark:text-gray-100 light:text-gray-900 group-hover:text-current transition-colors">
+          <h3 className="text-lg font-bold text-gray-100 dark:text-gray-100 light:text-gray-900 transition-colors">
             {service.title}
           </h3>
           <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
             service.category === 'software' 
               ? 'bg-blue-600/20 text-blue-300 border border-blue-500/50' 
-              : 'bg-purple-600/20 text-purple-300 border border-purple-500/50'
+              : service.category === 'audio'
+              ? 'bg-purple-600/20 text-purple-300 border border-purple-500/50'
+              : 'bg-green-600/20 text-green-300 border border-green-500/50'
           }`}>
-            {service.category === 'software' ? 'Software Development' : 'Audio Engineering'}
+            {service.category === 'software' ? 'Software Development' : 
+             service.category === 'audio' ? 'Audio Engineering' : 'Music Performance'}
           </span>
         </div>
       </div>
 
       {/* Description */}
-      <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-sm leading-relaxed mb-4 group-hover:text-current transition-colors">
+      <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-sm leading-relaxed mb-4 transition-colors">
         {service.description}
       </p>
 
@@ -70,6 +73,7 @@ const ServiceCard = ({ service, index }: { service: Service; index: number }) =>
 const Services = () => {
   const softwareServices = getSoftwareServices()
   const audioServices = getAudioServices()
+  const musicServices = getMusicServices()
 
   return (
     <section id="services" className="pt-32 pb-20 bg-gradient-to-b from-gray-900 to-black dark:from-gray-900 dark:to-black light:from-gray-50 light:to-white">
@@ -129,10 +133,29 @@ const Services = () => {
           </div>
         </StaggeredFadeIn>
 
+        {/* Music Performance Services */}
+        <StaggeredFadeIn delay={0.6}>
+          <div className="mb-16">
+            <div className="flex items-center space-x-3 mb-8">
+              <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center">
+                <Music className="w-5 h-5 text-white" />
+              </div>
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-100 dark:text-gray-100 light:text-gray-900">
+                Music Performance
+              </h2>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {musicServices.map((service, index) => (
+                <ServiceCard key={service.id} service={service} index={index} />
+              ))}
+            </div>
+          </div>
+        </StaggeredFadeIn>
+
         {/* Pricing Note */}
-        <FadeIn delay={0.7}>
+        <FadeIn delay={0.8}>
           <div className="glass-effect-dark dark:glass-effect-dark light:glass-effect border border-l-4 border-l-blue-500 border-gray-800/30 dark:border-gray-800/30 light:border-gray-200/30 rounded-2xl p-8 text-center">
-            <SlideUp delay={0.8}>
+            <SlideUp delay={0.9}>
               <h3 className="text-2xl font-bold text-gray-100 dark:text-gray-100 light:text-gray-900 mb-4">
                 Student-Friendly Pricing Available
               </h3>

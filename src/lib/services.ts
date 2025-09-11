@@ -2,7 +2,7 @@ export interface Service {
   id: string
   title: string
   description: string
-  category: 'software' | 'audio'
+  category: 'software' | 'audio' | 'music'
   features: string[]
   cta: string
   icon: string
@@ -92,12 +92,51 @@ export const services: Service[] = [
     features: ['Stem Preparation', 'Track Organization', 'Performance Ready', 'Remix Ready'],
     cta: 'Get Quote',
     icon: '🎵'
+  },
+  
+  // Music Performance Services
+  {
+    id: 'live-bass-recording',
+    title: 'Live Bass Recording',
+    category: 'music',
+    description: 'Professional studio bass overdubs with DI or mic\'d amp, delivering raw or lightly processed stems.',
+    features: ['Studio Overdubs', 'DI Recording', 'Mic\'d Amp', 'Raw/Lightly Processed Stems'],
+    cta: 'Get Quote',
+    icon: '🎸'
+  },
+  {
+    id: 'live-drums-recording',
+    title: 'Live Drums Recording',
+    category: 'music',
+    description: 'High-quality studio drum overdubs with multi-mic setup, providing raw or lightly processed stems.',
+    features: ['Studio Overdubs', 'Multi-Mic Setup', 'Professional Recording', 'Raw/Lightly Processed Stems'],
+    cta: 'Get Quote',
+    icon: '🥁'
+  },
+  {
+    id: 'live-bass-gig',
+    title: 'Live Bass (Gig)',
+    category: 'music',
+    description: 'Professional bass playing services for rehearsals, concerts, and live events.',
+    features: ['Rehearsals', 'Concerts', 'Live Events', 'Professional Performance'],
+    cta: 'Get Quote',
+    icon: '🎸'
+  },
+  {
+    id: 'live-drums-gig',
+    title: 'Live Drums (Gig)',
+    category: 'music',
+    description: 'Expert drumming services for rehearsals, concerts, and live performances.',
+    features: ['Rehearsals', 'Concerts', 'Live Performances', 'Professional Drumming'],
+    cta: 'Get Quote',
+    icon: '🥁'
   }
 ]
 
-export const getServicesByCategory = (category: 'software' | 'audio') => {
+export const getServicesByCategory = (category: 'software' | 'audio' | 'music') => {
   return services.filter(service => service.category === category)
 }
 
 export const getSoftwareServices = () => getServicesByCategory('software')
 export const getAudioServices = () => getServicesByCategory('audio')
+export const getMusicServices = () => getServicesByCategory('music')

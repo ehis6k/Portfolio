@@ -34,11 +34,95 @@ interface ContactFormProps {
 const ContactForm = ({ className }: ContactFormProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [rateLimitMessage, setRateLimitMessage] = useState<string>('')
 
   // Initialize EmailJS on component mount
   useEffect(() => {
     initEmailJS()
+    // Track form start time for validation
+    sessionStorage.setItem('form_start_time', Date.now().toString())
   }, [])
+
+  // Rate limiting configuration
+  const RATE_LIMIT_CONFIG = {
+    maxAttempts: 3,        // Maximum attempts per window
+    windowMs: 5 * 60 * 1000, // 5 minutes in milliseconds
+    storageKey: 'contact_form_attempts'
+  }
+
+  // Check rate limiting
+  const checkRateLimit = (): { allowed: boolean; message: string; timeLeft?: number } => {
+    const now = Date.now()
+    const attempts = JSON.parse(localStorage.getItem(RATE_LIMIT_CONFIG.storageKey) || '[]')
+    
+    // Filter attempts within the time window
+    const recentAttempts = attempts.filter((timestamp: number) => 
+      now - timestamp < RATE_LIMIT_CONFIG.windowMs
+    )
+    
+    if (recentAttempts.length >= RATE_LIMIT_CONFIG.maxAttempts) {
+      const oldestAttempt = Math.min(...recentAttempts)
+      const timeLeft = Math.ceil((oldestAttempt + RATE_LIMIT_CONFIG.windowMs - now) / 1000 / 60)
+      return {
+        allowed: false,
+        message: `Too many attempts. Please wait ${timeLeft} minute(s) before trying again.`,
+        timeLeft
+      }
+    }
+    
+    return { allowed: true, message: '' }
+  }
+
+  // Record submission attempt
+  const recordAttempt = () => {
+    const now = Date.now()
+    const attempts = JSON.parse(localStorage.getItem(RATE_LIMIT_CONFIG.storageKey) || '[]')
+    attempts.push(now)
+    localStorage.setItem(RATE_LIMIT_CONFIG.storageKey, JSON.stringify(attempts))
+  }
+
+  // Additional client-side validation
+  const validateFormData = (data: ContactFormData): boolean => {
+    // Check for suspicious patterns
+    const suspiciousPatterns = [
+      /<script/i, // Script tags
+      /javascript:/i, // JavaScript URLs
+      /on\w+\s*=/i, // Event handlers
+      /data:text\/html/i, // Data URLs
+      /vbscript:/i, // VBScript
+      /expression\s*\(/i, // CSS expressions
+    ]
+
+    const allText = `${data.name} ${data.email} ${data.message}`.toLowerCase()
+    
+    // Check for suspicious content
+    if (suspiciousPatterns.some(pattern => pattern.test(allText))) {
+      console.log('Suspicious content detected')
+      setRateLimitMessage('Invalid content detected. Please provide a genuine inquiry.')
+      return false
+    }
+
+    // Check for excessive special characters (potential obfuscation)
+    const specialCharCount = (data.message.match(/[^a-zA-Z0-9\s]/g) || []).length
+    if (specialCharCount > data.message.length * 0.3) {
+      console.log('Excessive special characters detected')
+      setRateLimitMessage('Message contains too many special characters. Please provide a clear inquiry.')
+      return false
+    }
+
+    // Check for rapid form filling (potential automation)
+    const formStartTime = sessionStorage.getItem('form_start_time')
+    if (formStartTime) {
+      const timeSpent = Date.now() - parseInt(formStartTime)
+      if (timeSpent < 5000) { // Less than 5 seconds
+        console.log('Form filled too quickly - potential automation')
+        setRateLimitMessage('Please take your time to provide a detailed inquiry.')
+        return false
+      }
+    }
+
+    return true
+  }
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
@@ -53,8 +137,34 @@ const ContactForm = ({ className }: ContactFormProps) => {
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true)
     setSubmitStatus('idle')
+    setRateLimitMessage('')
 
     try {
+      // Rate limiting check
+      const rateLimitCheck = checkRateLimit()
+      if (!rateLimitCheck.allowed) {
+        setRateLimitMessage(rateLimitCheck.message)
+        setSubmitStatus('error')
+        setIsSubmitting(false)
+        return
+      }
+
+      // Honeypot validation - check if hidden field was filled (bot detection)
+      const honeypotField = document.querySelector('input[name="website"]') as HTMLInputElement
+      if (honeypotField && honeypotField.value) {
+        console.log('Bot detected - honeypot field filled')
+        setSubmitStatus('error')
+        setIsSubmitting(false)
+        return
+      }
+
+      // Additional client-side validation
+      if (!validateFormData(data)) {
+        setSubmitStatus('error')
+        setIsSubmitting(false)
+        return
+      }
+
       // Validate EmailJS configuration
       if (!validateEmailJSConfig()) {
         throw new Error('EmailJS is not properly configured. Please contact me directly.')
@@ -72,6 +182,8 @@ const ContactForm = ({ className }: ContactFormProps) => {
       const result = await sendEmail(templateParams, 'contact')
       
       if (result.success) {
+        // Record successful submission attempt for rate limiting
+        recordAttempt()
         setSubmitStatus('success')
         form.reset()
       } else {
@@ -108,6 +220,17 @@ const ContactForm = ({ className }: ContactFormProps) => {
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          {/* Honeypot Field - Hidden from users but visible to bots */}
+          <div style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }}>
+            <input
+              type="text"
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+              style={{ display: 'none' }}
+            />
+          </div>
+
           {/* Name Field */}
           <FormField
             control={form.control}
@@ -247,7 +370,9 @@ const ContactForm = ({ className }: ContactFormProps) => {
               className="flex items-center space-x-2 text-red-400 bg-red-400/10 border border-red-400/20 rounded-lg p-3"
             >
               <AlertCircle className="w-5 h-5" />
-              <span>Failed to send message. Please try again or contact me directly.</span>
+              <span>
+                {rateLimitMessage || 'Failed to send message. Please try again or contact me directly.'}
+              </span>
             </motion.div>
           )}
         </form>
