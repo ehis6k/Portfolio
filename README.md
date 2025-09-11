@@ -4,7 +4,7 @@ A modern, responsive portfolio website showcasing my work as a final-year Comput
 
 ## 🚀 Live Demo
 
-Visit the live portfolio at: [Your Domain Here]
+Visit the live portfolio at: gabrieluwaila.com
 
 ## 📋 About
 
@@ -177,7 +177,7 @@ While this is a personal portfolio, I welcome feedback and suggestions! Feel fre
 ## 📞 Contact
 
 **Gabriel Uwaila**
-- 📧 Email: [your.email@example.com]
+- 📧 Email: gabrieluwaila@gmail.com
 - 💼 LinkedIn: [linkedin.com/in/gabrieluwaila]
 - 🐙 GitHub: [github.com/ehis6k]
 - 🎥 YouTube: [Your YouTube Channel]
