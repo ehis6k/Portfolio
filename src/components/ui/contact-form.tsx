@@ -25,7 +25,7 @@ import {
 } from '@/components/ui/select'
 import { Button } from '@/components/ui/button'
 import { contactFormSchema, serviceOptions, type ContactFormData } from '@/lib/contact-form'
-import { sendEmail, validateEmailJSConfig, initEmailJS } from '@/lib/emailjs'
+import { sendEmail, validateEmailJSConfig, initEmailJS, createTemplateParams } from '@/lib/emailjs'
 
 interface ContactFormProps {
   className?: string
@@ -60,18 +60,16 @@ const ContactForm = ({ className }: ContactFormProps) => {
         throw new Error('EmailJS is not properly configured. Please contact me directly.')
       }
 
-      // Prepare template parameters for EmailJS
-      const templateParams = {
-        from_name: data.name,
-        from_email: data.email,
+      // Prepare template parameters for EmailJS with dynamic variables
+      const templateParams = createTemplateParams({
+        name: data.name,
+        email: data.email,
         service: data.service,
         message: data.message,
-        to_email: 'gabrieluwaila@gmail.com',
-        reply_to: data.email,
-      }
+      })
 
-      // Send email via EmailJS
-      const result = await sendEmail(templateParams)
+      // Send email via EmailJS using the main template (sends inquiry to you)
+      const result = await sendEmail(templateParams, 'contact')
       
       if (result.success) {
         setSubmitStatus('success')
