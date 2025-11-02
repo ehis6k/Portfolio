@@ -177,10 +177,10 @@ While this is a personal portfolio, I welcome feedback and suggestions! Feel fre
 ## 📞 Contact
 
 **Gabriel Uwaila**
-- 📧 Email: gabrieluwaila@gmail.com
-- 💼 LinkedIn: [linkedin.com/in/gabrieluwaila]
-- 🐙 GitHub: [github.com/ehis6k]
-- 🎥 YouTube: [Your YouTube Channel]
+- 📧 Email: [Email](gabrieluwaila@gmail.com)
+- 💼 LinkedIn: [LinkedIn](linkedin.com/in/gabrieluwaila)
+- 🐙 GitHub: [My Github](github.com/ehis6k)
+- 🎥 YouTube: [My Youtuhbe Channel](https://www.youtube.com/@ehis6k)
 
 ## 📄 License
 
