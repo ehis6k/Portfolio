@@ -210,10 +210,10 @@ const ContactForm = ({ className }: ContactFormProps) => {
       className={`glass-effect-dark dark:glass-effect-dark light:glass-effect border border-gray-800/30 dark:border-gray-800/30 light:border-gray-200/30 rounded-2xl p-8 ${className}`}
     >
       <div className="mb-6">
-        <h3 className="text-2xl font-bold text-gray-100 dark:text-gray-100 light:text-gray-900 mb-2">
+        <h3 className="text-2xl font-bold text-theme-primary mb-2">
           Get Your Quote
         </h3>
-        <p className="text-gray-400 dark:text-gray-400 light:text-gray-600">
+        <p className="text-theme-secondary">
           Fill out the form below and I'll get back to you with a personalized quote and project details.
         </p>
       </div>
@@ -237,13 +237,13 @@ const ContactForm = ({ className }: ContactFormProps) => {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-gray-300 dark:text-gray-300 light:text-gray-700">
+                <FormLabel className="text-theme-primary">
                   Full Name *
                 </FormLabel>
                 <FormControl>
                   <Input
                     placeholder="Enter your full name"
-                    className="bg-gray-800/50 dark:bg-gray-800/50 light:bg-gray-100/50 border-gray-700 dark:border-gray-700 light:border-gray-300 text-gray-100 dark:text-gray-100 light:text-gray-900 placeholder:text-gray-500 focus:border-blue-500 focus:ring-blue-500/20"
+                    className="bg-gradient-card border-gray-700 dark:border-gray-700 light:border-gray-400 text-theme-primary placeholder:text-theme-muted focus:border-blue-500 focus:ring-blue-500/20"
                     {...field}
                   />
                 </FormControl>
@@ -258,14 +258,14 @@ const ContactForm = ({ className }: ContactFormProps) => {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-gray-300 dark:text-gray-300 light:text-gray-700">
+                <FormLabel className="text-theme-primary">
                   Email Address *
                 </FormLabel>
                 <FormControl>
                   <Input
                     type="email"
                     placeholder="Enter your email address"
-                    className="bg-gray-800/50 dark:bg-gray-800/50 light:bg-gray-100/50 border-gray-700 dark:border-gray-700 light:border-gray-300 text-gray-100 dark:text-gray-100 light:text-gray-900 placeholder:text-gray-500 focus:border-blue-500 focus:ring-blue-500/20"
+                    className="bg-gradient-card border-gray-700 dark:border-gray-700 light:border-gray-400 text-theme-primary placeholder:text-theme-muted focus:border-blue-500 focus:ring-blue-500/20"
                     {...field}
                   />
                 </FormControl>
@@ -280,21 +280,21 @@ const ContactForm = ({ className }: ContactFormProps) => {
             name="service"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-gray-300 dark:text-gray-300 light:text-gray-700">
+                <FormLabel className="text-theme-primary">
                   Service Interest *
                 </FormLabel>
                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                   <FormControl>
-                    <SelectTrigger className="bg-gray-800/50 dark:bg-gray-800/50 light:bg-gray-100/50 border-gray-700 dark:border-gray-700 light:border-gray-300 text-gray-100 dark:text-gray-100 light:text-gray-900 focus:border-blue-500 focus:ring-blue-500/20">
+                    <SelectTrigger className="bg-gradient-card border-gray-700 dark:border-gray-700 light:border-gray-400 text-theme-primary focus:border-blue-500 focus:ring-blue-500/20">
                       <SelectValue placeholder="Select a service" />
                     </SelectTrigger>
                   </FormControl>
-                  <SelectContent className="bg-gray-800 dark:bg-gray-800 light:bg-gray-100 border-gray-700 dark:border-gray-700 light:border-gray-300">
+                  <SelectContent className="bg-section-dark border-gray-700 dark:border-gray-700 light:border-gray-400">
                     {serviceOptions.map((option) => (
                       <SelectItem
                         key={option.value}
                         value={option.value}
-                        className="text-gray-100 dark:text-gray-100 light:text-gray-900 hover:bg-gray-700 dark:hover:bg-gray-700 light:hover:bg-gray-200 focus:bg-gray-700 dark:focus:bg-gray-700 light:focus:bg-gray-200"
+                        className="text-theme-primary hover:bg-gray-700 dark:hover:bg-gray-700 light:hover:bg-gray-200 focus:bg-gray-700 dark:focus:bg-gray-700 light:focus:bg-gray-200"
                       >
                         {option.label}
                       </SelectItem>
@@ -312,13 +312,13 @@ const ContactForm = ({ className }: ContactFormProps) => {
             name="message"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-gray-300 dark:text-gray-300 light:text-gray-700">
+                <FormLabel className="text-theme-primary">
                   Project Details *
                 </FormLabel>
                 <FormControl>
                   <Textarea
                     placeholder="Tell me about your project, timeline, and any specific requirements..."
-                    className="min-h-[120px] bg-gray-800/50 dark:bg-gray-800/50 light:bg-gray-100/50 border-gray-700 dark:border-gray-700 light:border-gray-300 text-gray-100 dark:text-gray-100 light:text-gray-900 placeholder:text-gray-500 focus:border-blue-500 focus:ring-blue-500/20 resize-none"
+                    className="min-h-[120px] bg-gradient-card border-gray-700 dark:border-gray-700 light:border-gray-400 text-theme-primary placeholder:text-theme-muted focus:border-blue-500 focus:ring-blue-500/20 resize-none"
                     {...field}
                   />
                 </FormControl>
@@ -380,11 +380,11 @@ const ContactForm = ({ className }: ContactFormProps) => {
 
       {/* Additional Contact Info */}
       <div className="mt-6 pt-6 border-t border-gray-800/30 dark:border-gray-800/30 light:border-gray-200/30">
-        <p className="text-sm text-gray-400 dark:text-gray-400 light:text-gray-600 text-center">
+        <p className="text-sm text-theme-secondary text-center">
           Prefer to email directly? Contact me at{' '}
           <a
             href="mailto:gabrieluwaila@gmail.com"
-            className="text-blue-400 hover:text-blue-300 transition-colors"
+            className="text-blue-400 dark:text-blue-400 light:text-blue-600 hover:text-blue-300 dark:hover:text-blue-300 light:hover:text-blue-700 transition-colors"
           >
             gabrieluwaila@gmail.com
           </a>

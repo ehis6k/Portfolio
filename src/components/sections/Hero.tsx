@@ -53,7 +53,7 @@ const Hero = () => {
   return (
     <section 
       id="hero" 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-800"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero"
     >
       {/* Background Effects - Simplified for mobile */}
       <div className="absolute inset-0">
@@ -113,7 +113,7 @@ const Hero = () => {
                   ease: "easeOut"
                 }}
               >
-                <p className="text-lg md:text-xl text-gray-400 font-medium tracking-wide">
+                <p className="text-lg md:text-xl text-theme-secondary font-medium tracking-wide">
                   Welcome to the web portfolio of
                 </p>
               </motion.div>
@@ -128,7 +128,7 @@ const Hero = () => {
                 }}
               >
                 <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight">
-                  <span className="text-gray-100">Gabriel </span>
+                  <span className="text-theme-primary">Gabriel </span>
                   <span className="bg-gradient-to-r from-blue-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent">
                     Uwaila
                   </span>
@@ -144,7 +144,7 @@ const Hero = () => {
                   ease: "easeOut"
                 }}
               >
-                <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                <p className="text-xl md:text-2xl text-theme-secondary max-w-3xl mx-auto leading-relaxed">
                   Final-year Computer Science student, Fujifilm intern, and aspiring full-stack developer 
                   passionate about creating innovative digital solutions.
                 </p>
@@ -162,25 +162,25 @@ const Hero = () => {
               }}
             >
               <div className="flex items-center justify-center space-x-4 md:space-x-8 mt-12 mb-12 flex-wrap gap-4">
-                <div className="flex items-center space-x-2 text-gray-400">
+                <div className="flex items-center space-x-2 text-theme-secondary">
                   <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
                     <span className="text-white text-sm font-bold">R</span>
                   </div>
                   <span className="text-sm font-medium">React</span>
                 </div>
-                <div className="flex items-center space-x-2 text-gray-400">
+                <div className="flex items-center space-x-2 text-theme-secondary">
                   <div className="w-8 h-8 bg-gradient-to-r from-slate-600 to-slate-700 rounded-lg flex items-center justify-center">
                     <span className="text-white text-sm font-bold">T</span>
                   </div>
                   <span className="text-sm font-medium">TypeScript</span>
                 </div>
-                <div className="flex items-center space-x-2 text-gray-400">
+                <div className="flex items-center space-x-2 text-theme-secondary">
                   <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
                     <span className="text-white text-sm font-bold">N</span>
                   </div>
                   <span className="text-sm font-medium">.NET</span>
                 </div>
-                <div className="flex items-center space-x-2 text-gray-400">
+                <div className="flex items-center space-x-2 text-theme-secondary">
                   <div className="w-8 h-8 bg-gradient-to-r from-gray-600 to-gray-700 rounded-lg flex items-center justify-center">
                     <span className="text-white text-sm font-bold">J</span>
                   </div>
@@ -212,7 +212,7 @@ const Hero = () => {
                   href="/api/cv"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-8 py-4 bg-white/10 border border-white/20 text-white font-semibold rounded-lg backdrop-blur hover:bg-white/20 transition-all duration-300"
+                  className="px-8 py-4 bg-gradient-to-r from-slate-600 to-gray-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl hover:from-slate-700 hover:to-gray-700 transition-all duration-300"
                   whileHover={!isMobile ? { scale: 1.05 } : {}}
                   whileTap={!isMobile ? { scale: 0.95 } : {}}
                 >
@@ -220,7 +220,7 @@ const Hero = () => {
                 </motion.a>
                 <motion.button
                   onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="px-8 py-4 border-2 border-gray-600 text-gray-300 font-semibold rounded-lg hover:border-gray-500 hover:text-white transition-all duration-300"
+                  className="px-8 py-4 border-2 border-gray-600 text-theme-secondary font-semibold rounded-lg hover:border-gray-500 hover:text-theme-primary transition-all duration-300"
                   whileHover={!isMobile ? { scale: 1.05 } : {}}
                   whileTap={!isMobile ? { scale: 0.95 } : {}}
                 >
@@ -246,7 +246,7 @@ const Hero = () => {
             animate={!reduceMotion ? { y: [0, 10, 0] } : {}}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           >
-            <div className="flex flex-col items-center space-y-2 text-gray-400 hover:text-gray-300 transition-colors">
+            <div className="flex flex-col items-center space-y-2 text-theme-secondary hover:text-theme-primary transition-colors">
               <span className="text-sm font-medium">Scroll to explore</span>
               <ChevronDown className="w-6 h-6" />
             </div>

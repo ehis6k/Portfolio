@@ -20,7 +20,7 @@ const ServiceCard = ({ service, index }: { service: Service; index: number }) =>
           <span className="text-2xl">{service.icon}</span>
         </div>
         <div>
-          <h3 className="text-lg font-bold text-gray-100 dark:text-gray-100 light:text-gray-900 transition-colors">
+          <h3 className="text-lg font-bold text-theme-primary transition-colors">
             {service.title}
           </h3>
           <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
@@ -37,7 +37,7 @@ const ServiceCard = ({ service, index }: { service: Service; index: number }) =>
       </div>
 
       {/* Description */}
-      <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-sm leading-relaxed mb-4 transition-colors">
+      <p className="text-theme-secondary text-sm leading-relaxed mb-4 transition-colors">
         {service.description}
       </p>
 
@@ -76,18 +76,18 @@ const Services = () => {
   const musicServices = getMusicServices()
 
   return (
-    <section id="services" className="pt-32 pb-20 bg-gradient-to-b from-gray-900 to-black dark:from-gray-900 dark:to-black light:from-gray-50 light:to-white">
+    <section id="services" className="pt-32 pb-20 bg-section-dark">
       <div className="container mx-auto px-6">
         {/* Header */}
         <FadeIn>
           <div className="text-center mb-16">
             <SlideUp>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-100 dark:text-gray-100 light:text-gray-900 mb-6">
+              <h1 className="text-4xl md:text-5xl font-bold text-theme-primary mb-6">
                 Professional <span className="text-gradient-accent">Services</span>
               </h1>
             </SlideUp>
             <SlideUp delay={0.2}>
-              <p className="text-xl text-gray-400 dark:text-gray-400 light:text-gray-600 max-w-3xl mx-auto">
+              <p className="text-xl text-theme-secondary max-w-3xl mx-auto">
                 From software development to audio engineering, I provide comprehensive solutions 
                 tailored to your needs. Contact me for personalized pricing and project details.
               </p>
@@ -102,7 +102,7 @@ const Services = () => {
               <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center">
                 <Code className="w-5 h-5 text-white" />
               </div>
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-100 dark:text-gray-100 light:text-gray-900">
+              <h2 className="text-2xl md:text-3xl font-bold text-theme-primary">
                 Software Development
               </h2>
             </div>
@@ -121,7 +121,7 @@ const Services = () => {
               <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl flex items-center justify-center">
                 <Music className="w-5 h-5 text-white" />
               </div>
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-100 dark:text-gray-100 light:text-gray-900">
+              <h2 className="text-2xl md:text-3xl font-bold text-theme-primary">
                 Audio Engineering
               </h2>
             </div>
@@ -140,7 +140,7 @@ const Services = () => {
               <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center">
                 <Music className="w-5 h-5 text-white" />
               </div>
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-100 dark:text-gray-100 light:text-gray-900">
+              <h2 className="text-2xl md:text-3xl font-bold text-theme-primary">
                 Music Performance
               </h2>
             </div>
@@ -156,10 +156,10 @@ const Services = () => {
         <FadeIn delay={0.8}>
           <div className="glass-effect-dark dark:glass-effect-dark light:glass-effect border border-l-4 border-l-blue-500 border-gray-800/30 dark:border-gray-800/30 light:border-gray-200/30 rounded-2xl p-8 text-center">
             <SlideUp delay={0.9}>
-              <h3 className="text-2xl font-bold text-gray-100 dark:text-gray-100 light:text-gray-900 mb-4">
+              <h3 className="text-2xl font-bold text-theme-primary mb-4">
                 Student-Friendly Pricing Available
               </h3>
-              <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 mb-6">
+              <p className="text-theme-secondary mb-6">
                 I offer competitive rates with special pricing for students and educational projects. 
                 Contact me to discuss your specific needs and receive a personalized quote.
               </p>

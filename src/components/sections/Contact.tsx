@@ -51,17 +51,17 @@ const Contact = () => {
   }
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-gray-900 to-black dark:from-gray-900 dark:to-black light:from-gray-50 light:to-white">
+    <section id="contact" className="py-20 bg-section-light">
       <div className="container mx-auto px-6">
         <FadeIn>
           <div className="text-center mb-16">
             <SlideUp>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-100 dark:text-gray-100 light:text-gray-900 mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold text-theme-primary mb-6">
                 Let's <span className="text-gradient-accent">Connect</span>
               </h2>
             </SlideUp>
             <SlideUp delay={0.2}>
-              <p className="text-xl text-gray-400 dark:text-gray-400 light:text-gray-600 max-w-2xl mx-auto">
+              <p className="text-xl text-theme-secondary max-w-2xl mx-auto">
                 Ready to bring your ideas to life? Let's start a conversation about your next project
               </p>
             </SlideUp>
@@ -90,12 +90,12 @@ const Contact = () => {
                       <IconComponent className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-gray-100 dark:text-gray-100 light:text-gray-900 group-hover:text-current transition-colors">
+                      <h3 className="text-lg font-bold text-theme-primary group-hover:text-current transition-colors">
                         {option.title}
                       </h3>
                     </div>
                   </div>
-                  <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 text-sm leading-relaxed mb-3 group-hover:text-current transition-colors">
+                  <p className="text-theme-secondary text-sm leading-relaxed mb-3 group-hover:text-current transition-colors">
                     {option.description}
                   </p>
                   <span className="text-sm font-medium group-hover:text-current transition-colors">
@@ -115,11 +115,11 @@ const Contact = () => {
                 <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center">
                   <User className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-100 dark:text-gray-100 light:text-gray-900">
+                <h3 className="text-2xl font-bold text-theme-primary">
                   Find Me Everywhere
                 </h3>
               </div>
-              <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 mb-4">
+              <p className="text-theme-secondary mb-4">
                 Follow my journey across all platforms with my universal handle
               </p>
               <div className="flex items-center justify-center space-x-2">
@@ -137,10 +137,10 @@ const Contact = () => {
           <div className="mt-16 max-w-2xl mx-auto">
             <SlideUp delay={0.9}>
               <div className="text-center mb-8">
-                <h3 className="text-3xl md:text-4xl font-bold text-gray-100 dark:text-gray-100 light:text-gray-900 mb-4">
+                <h3 className="text-3xl md:text-4xl font-bold text-theme-primary mb-4">
                   Get Your <span className="text-gradient-accent">Quote</span>
                 </h3>
-                <p className="text-lg text-gray-400 dark:text-gray-400 light:text-gray-600">
+                <p className="text-lg text-theme-secondary">
                   Fill out the form below and I'll get back to you with a personalized quote and project details.
                 </p>
               </div>

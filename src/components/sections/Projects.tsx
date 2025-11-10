@@ -98,17 +98,17 @@ const Projects = () => {
   }
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-b from-black to-gray-900 dark:from-black dark:to-gray-900 light:from-white light:to-gray-50">
+    <section id="projects" className="py-20 bg-section-light">
       <div className="container mx-auto px-6">
         <FadeIn>
           <div className="text-center mb-16">
             <SlideUp>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-100 dark:text-gray-100 light:text-gray-900 mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold text-theme-primary mb-6">
                 Featured <span className="text-gradient-accent">Projects</span>
               </h2>
             </SlideUp>
             <SlideUp delay={0.2}>
-              <p className="text-xl text-gray-400 dark:text-gray-400 light:text-gray-600 max-w-2xl mx-auto">
+              <p className="text-xl text-theme-secondary max-w-2xl mx-auto">
                 A showcase of my technical skills and passion for creating innovative solutions
               </p>
             </SlideUp>
@@ -126,7 +126,7 @@ const Projects = () => {
               >
                 <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-6">
                   <div className="flex items-center space-x-4 mb-4 lg:mb-0">
-                    <h3 className="text-2xl font-bold text-gray-100 dark:text-gray-100 light:text-gray-900">
+                    <h3 className="text-2xl font-bold text-theme-primary">
                       {project.title}
                     </h3>
                     {project.featured && (
@@ -145,11 +145,11 @@ const Projects = () => {
                   </div>
                 </div>
 
-                <p className="text-gray-300 dark:text-gray-300 light:text-gray-700 text-lg leading-relaxed mb-4">
+                <p className="text-theme-primary text-lg leading-relaxed mb-4">
                   {project.description}
                 </p>
-
-                <p className="text-gray-400 dark:text-gray-400 light:text-gray-600 leading-relaxed mb-6">
+                
+                <p className="text-theme-secondary leading-relaxed mb-6">
                   {project.details}
                 </p>
 

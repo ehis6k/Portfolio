@@ -49,7 +49,7 @@ const Header = () => {
   ]
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-gray-800/50">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-section-dark/80 backdrop-blur-xl border-b border-gray-800/50">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo/Brand */}
@@ -63,7 +63,7 @@ const Header = () => {
             }}
             className="group flex items-center space-x-2"
           >
-            <span className="text-xl font-bold bg-gradient-to-r from-gray-100 to-gray-300 bg-clip-text text-transparent hover:from-white hover:to-gray-200 transition-all duration-300">
+            <span className="text-xl font-bold text-theme-primary hover:text-gradient-accent transition-all duration-300">
               Gabriel Uwaila
             </span>
           </button>
@@ -74,7 +74,7 @@ const Header = () => {
               <button
                 key={item.href}
                 onClick={() => handleNavigation(item)}
-                className="relative text-gray-300 hover:text-white transition-colors duration-300 font-medium group"
+                className="relative text-theme-secondary hover:text-theme-primary transition-colors duration-300 font-medium group"
               >
                 {item.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-500 transition-all duration-300 group-hover:w-full"></span>
@@ -92,7 +92,7 @@ const Header = () => {
             </SheetTrigger>
             <SheetContent 
               side="right" 
-              className="w-[320px] bg-gradient-to-b from-black via-gray-900 to-black border-l border-gray-700/50 backdrop-blur-2xl shadow-2xl"
+              className="w-[320px] bg-section-dark border-l border-gray-700/50 dark:border-gray-700/50 light:border-gray-300/50 backdrop-blur-2xl shadow-2xl"
             >
               <SheetHeader>
                 <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
@@ -116,7 +116,7 @@ const Header = () => {
                     <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 via-white to-gray-300 bg-clip-text text-transparent group-hover:from-white group-hover:to-blue-300 transition-all duration-300">
                       Gabriel Uwaila
                     </span>
-                    <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300">Full-Stack Developer</p>
+                    <p className="text-sm text-theme-secondary group-hover:text-theme-primary transition-colors duration-300">Full-Stack Developer</p>
                   </button>
                 </div>
                 
@@ -127,7 +127,7 @@ const Header = () => {
                       <button
                         key={item.href}
                         onClick={() => handleNavigation(item)}
-                        className="w-full group flex items-center justify-between px-4 py-4 rounded-xl text-left text-base font-medium text-gray-300 hover:text-white hover:bg-gradient-to-r hover:from-blue-600/20 hover:to-purple-600/20 transition-all duration-300 transform hover:scale-[1.02]"
+                        className="w-full group flex items-center justify-between px-4 py-4 rounded-xl text-left text-base font-medium text-theme-secondary hover:text-theme-primary hover:bg-gradient-to-r hover:from-blue-600/20 hover:to-purple-600/20 transition-all duration-300 transform hover:scale-[1.02]"
                         style={{
                           animationDelay: `${index * 100}ms`
                         }}

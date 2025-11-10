@@ -18,8 +18,8 @@ interface SkillBadgeProps {
 const SkillBadge = ({ children, variant = 'default' }: SkillBadgeProps) => {
   const baseClasses = 'inline-flex items-center rounded-full px-3 py-1 text-sm font-medium transition-all duration-300 hover:scale-105'
   const variantClasses = {
-    default: 'bg-gray-800/50 dark:bg-gray-800/50 light:bg-gray-200/50 border-gray-700/50 dark:border-gray-700/50 light:border-gray-300/50 text-gray-300 dark:text-gray-300 light:text-gray-700 hover:bg-gray-700/50 dark:hover:bg-gray-700/50 light:hover:bg-gray-300/50',
-    highlight: 'bg-gradient-to-r from-blue-600/20 to-indigo-600/20 dark:from-blue-600/20 dark:to-indigo-600/20 light:from-blue-500/20 light:to-indigo-500/20 border-blue-500/40 dark:border-blue-500/40 light:border-blue-400/40 text-blue-300 dark:text-blue-300 light:text-blue-600 hover:from-blue-500/30 hover:to-indigo-500/30 dark:hover:from-blue-500/30 dark:hover:to-indigo-500/30 light:hover:from-blue-400/30 light:hover:to-indigo-400/30'
+    default: 'bg-gradient-card border-gray-700/50 dark:border-gray-700/50 light:border-gray-400/60 text-theme-primary hover:bg-gray-700/50 dark:hover:bg-gray-700/50 light:hover:bg-gray-300/60',
+    highlight: 'bg-gradient-to-r from-blue-600/20 to-indigo-600/20 dark:from-blue-600/20 dark:to-indigo-600/20 light:from-blue-500/30 light:to-indigo-500/30 border-blue-500/40 dark:border-blue-500/40 light:border-blue-500/60 text-blue-300 dark:text-blue-300 light:text-blue-700 hover:from-blue-500/30 hover:to-indigo-500/30 dark:hover:from-blue-500/30 dark:hover:to-indigo-500/30 light:hover:from-blue-400/40 light:hover:to-indigo-400/40'
   }
   
   return (
@@ -58,17 +58,17 @@ const Skills = () => {
   ]
 
   return (
-    <section id="skills" className="py-20 bg-gradient-to-b from-gray-900 to-black dark:from-gray-900 dark:to-black light:from-gray-50 light:to-white">
+    <section id="skills" className="py-20 bg-section-dark">
       <div className="container mx-auto px-6">
         <FadeIn>
           <div className="text-center mb-16">
             <SlideUp>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-100 dark:text-gray-100 light:text-gray-900 mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold text-theme-primary mb-6">
                 Skills & <span className="text-gradient-accent">Technologies</span>
               </h2>
             </SlideUp>
             <SlideUp delay={0.2}>
-              <p className="text-xl text-gray-400 dark:text-gray-400 light:text-gray-600 max-w-2xl mx-auto">
+              <p className="text-xl text-theme-secondary max-w-2xl mx-auto">
                 Enterprise-ready engineering capabilities across full-stack delivery, cloud operations, and applied machine learning
               </p>
             </SlideUp>
@@ -89,7 +89,7 @@ const Skills = () => {
                     <div className={`w-12 h-12 bg-gradient-to-r ${category.gradient} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
                       <IconComponent className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-100 dark:text-gray-100 light:text-gray-900">
+                    <h3 className="text-2xl font-bold text-theme-primary">
                       {category.title}
                     </h3>
                   </div>
@@ -115,7 +115,7 @@ const Skills = () => {
         <FadeIn delay={0.6}>
           <div className="mt-20 text-center">
             <SlideUp delay={0.7}>
-              <h3 className="text-3xl font-bold text-gray-100 dark:text-gray-100 light:text-gray-900 mb-8">
+              <h3 className="text-3xl font-bold text-theme-primary mb-8">
                 Delivery <span className="text-gradient-accent">Expertise</span>
               </h3>
             </SlideUp>
@@ -126,7 +126,7 @@ const Skills = () => {
                     <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center">
                       <Server className="w-5 h-5 text-white" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-100 dark:text-gray-100 light:text-gray-900">Architecture & Delivery</h4>
+                    <h4 className="text-xl font-bold text-theme-primary">Architecture & Delivery</h4>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     <SkillBadge>Domain-Driven Design</SkillBadge>
@@ -142,7 +142,7 @@ const Skills = () => {
                     <div className="w-10 h-10 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center">
                       <ShieldCheck className="w-5 h-5 text-white" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-100 dark:text-gray-100 light:text-gray-900">Security & Integrations</h4>
+                    <h4 className="text-xl font-bold text-theme-primary">Security & Integrations</h4>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     <SkillBadge>Active Directory</SkillBadge>
