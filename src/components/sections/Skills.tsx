@@ -2,15 +2,12 @@
 
 import { FadeIn, SlideUp, StaggeredFadeIn } from '@/components/ui/animated-components'
 import {
-  Code, 
-  Database, 
-  Globe, 
-  Server, 
-  Smartphone, 
-  Terminal,
-  GitBranch,
+  Code,
+  Database,
   Cloud,
-  Settings
+  Settings,
+  Server,
+  ShieldCheck
 } from 'lucide-react'
 
 interface SkillBadgeProps {
@@ -35,28 +32,28 @@ const SkillBadge = ({ children, variant = 'default' }: SkillBadgeProps) => {
 const Skills = () => {
   const skillCategories = [
     {
-      title: 'Languages',
+      title: 'Programming Languages',
       icon: Code,
-      skills: ['TypeScript', 'JavaScript', 'C#', 'Java', 'Python', 'SQL', 'HTML5', 'CSS3', 'C'],
+      skills: ['TypeScript', 'Java', 'C#', 'Python', 'SQL', 'JavaScript', 'HTML5', 'CSS3'],
       gradient: 'from-blue-500 to-blue-600'
     },
     {
-      title: 'Frameworks & Libraries',
+      title: 'Frameworks & Platforms',
       icon: Settings,
-      skills: ['React', 'Next.js', 'Node.js', 'Express', 'Spring Boot', '.NET', 'Blazor', 'Bootstrap', 'TailwindCSS', 'Chart.js'],
-      gradient: 'from-slate-500 to-slate-600'
+      skills: ['Spring Boot', '.NET 9', 'Blazor Server', 'Next.js', 'React', 'Material UI', 'React Query', 'FastAPI', 'Framer Motion', 'Tailwind CSS'],
+      gradient: 'from-cyan-500 to-blue-600'
     },
     {
-      title: 'Databases & Cloud',
-      icon: Database,
-      skills: ['PostgreSQL', 'MS SQL Server', 'MongoDB', 'Azure', 'Vercel', 'Netlify'],
-      gradient: 'from-green-500 to-green-600'
-    },
-    {
-      title: 'DevOps & Tools',
+      title: 'Cloud & DevOps',
       icon: Cloud,
-      skills: ['Docker', 'Git', 'GitHub Actions', 'Linux', 'Arduino', 'Bash'],
-      gradient: 'from-blue-600 to-indigo-600'
+      skills: ['Azure Container Apps', 'GitLab CI/CD', 'Docker', 'GitHub Actions', 'Azure Blob Storage', 'Vercel', 'Infrastructure as Code'],
+      gradient: 'from-indigo-500 to-purple-600'
+    },
+    {
+      title: 'Data, ML & Analytics',
+      icon: Database,
+      skills: ['PostgreSQL', 'MS SQL Server', 'Redis', 'Pandas', 'Scikit-learn', 'XGBoost', 'SMOTE', 'Transformers', 'LLM Pipelines'],
+      gradient: 'from-emerald-500 to-teal-600'
     }
   ]
 
@@ -72,7 +69,7 @@ const Skills = () => {
             </SlideUp>
             <SlideUp delay={0.2}>
               <p className="text-xl text-gray-400 dark:text-gray-400 light:text-gray-600 max-w-2xl mx-auto">
-                A comprehensive toolkit for building modern, scalable applications
+                Enterprise-ready engineering capabilities across full-stack delivery, cloud operations, and applied machine learning
               </p>
             </SlideUp>
           </div>
@@ -119,7 +116,7 @@ const Skills = () => {
           <div className="mt-20 text-center">
             <SlideUp delay={0.7}>
               <h3 className="text-3xl font-bold text-gray-100 dark:text-gray-100 light:text-gray-900 mb-8">
-                Additional <span className="text-gradient-accent">Expertise</span>
+                Delivery <span className="text-gradient-accent">Expertise</span>
               </h3>
             </SlideUp>
             <StaggeredFadeIn delay={0.8}>
@@ -127,30 +124,32 @@ const Skills = () => {
                 <div className="glass-effect-dark dark:glass-effect-dark light:glass-effect border border-gray-800/30 dark:border-gray-800/30 light:border-gray-200/30 rounded-xl p-6 hover:border-gray-700/50 dark:hover:border-gray-700/50 light:hover:border-gray-300/50 transition-all duration-300">
                   <div className="flex items-center space-x-3 mb-4">
                     <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center">
-                      <Smartphone className="w-5 h-5 text-white" />
+                      <Server className="w-5 h-5 text-white" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-100 dark:text-gray-100 light:text-gray-900">Content Creation</h4>
+                    <h4 className="text-xl font-bold text-gray-100 dark:text-gray-100 light:text-gray-900">Architecture & Delivery</h4>
                   </div>
                   <div className="flex flex-wrap gap-2">
-                    <SkillBadge>Video Editing</SkillBadge>
-                    <SkillBadge>YouTube</SkillBadge>
-                    <SkillBadge>Vlogging</SkillBadge>
-                    <SkillBadge>Social Media</SkillBadge>
+                    <SkillBadge>Domain-Driven Design</SkillBadge>
+                    <SkillBadge>Hexagonal Architecture</SkillBadge>
+                    <SkillBadge>Clean Architecture</SkillBadge>
+                    <SkillBadge>Agile Collaboration</SkillBadge>
+                    <SkillBadge>Technical Documentation</SkillBadge>
                   </div>
                 </div>
 
                 <div className="glass-effect-dark dark:glass-effect-dark light:glass-effect border border-gray-800/30 dark:border-gray-800/30 light:border-gray-200/30 rounded-xl p-6 hover:border-gray-700/50 dark:hover:border-gray-700/50 light:hover:border-gray-300/50 transition-all duration-300">
                   <div className="flex items-center space-x-3 mb-4">
-                    <div className="w-10 h-10 bg-gradient-to-r from-slate-500 to-gray-600 rounded-lg flex items-center justify-center">
-                      <Terminal className="w-5 h-5 text-white" />
+                    <div className="w-10 h-10 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center">
+                      <ShieldCheck className="w-5 h-5 text-white" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-100 dark:text-gray-100 light:text-gray-900">Audio Engineering</h4>
+                    <h4 className="text-xl font-bold text-gray-100 dark:text-gray-100 light:text-gray-900">Security & Integrations</h4>
                   </div>
                   <div className="flex flex-wrap gap-2">
-                    <SkillBadge>Bass Guitar</SkillBadge>
-                    <SkillBadge>Drums</SkillBadge>
-                    <SkillBadge>Music Production</SkillBadge>
-                    <SkillBadge>Audio Mixing</SkillBadge>
+                    <SkillBadge>Active Directory</SkillBadge>
+                    <SkillBadge>Keycloak OIDC</SkillBadge>
+                    <SkillBadge>JWT Authentication</SkillBadge>
+                    <SkillBadge>Stripe Payments</SkillBadge>
+                    <SkillBadge>REST API Design</SkillBadge>
                   </div>
                 </div>
               </div>

@@ -7,13 +7,13 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'Asset Management / CMDB Tool',
-      description: 'A comprehensive enterprise-level asset management and configuration management database system built during my internship at Fujifilm.',
-      details: 'Built with .NET Core and Blazor, this application helps manage IT assets, track configurations, and maintain an accurate inventory of all company resources. Features include asset lifecycle management, automated discovery, and detailed reporting capabilities.',
-      technologies: ['.NET', 'Blazor', 'C#', 'SQL Server', 'Entity Framework'],
+      title: 'Asset Management System (AMS)',
+      description: 'Enterprise asset lifecycle platform powering Fujifilm Europe’s IT infrastructure visibility.',
+      details: 'Built with .NET 9.0, Blazor Server, and SQL Server to catalogue hardware assets, locations, and owners. Implements unique serial tracking, automated discovery, transaction history, and AD-backed role-based access for admins, engineers, and end users. Hardened with enterprise security practices and deployed inside Fujifilm infrastructure.',
+      technologies: ['.NET 9', 'Blazor Server', 'C#', 'SQL Server', 'Active Directory'],
       type: 'enterprise',
       featured: true,
-      status: 'In Development',
+      status: 'In Pilot',
       isInternal: true
     },
     {
@@ -29,14 +29,58 @@ const Projects = () => {
     },
     {
       id: 3,
-      title: 'Personal Portfolio Website',
-      description: 'This very website you\'re viewing! A modern, responsive portfolio built with Next.js and cutting-edge web technologies.',
-      details: 'Features a sleek design with smooth animations, dark/light mode toggle, responsive layout, and optimized performance. Built with TypeScript for type safety and uses Framer Motion for engaging animations.',
-      technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+      title: 'KDG Restaurant Backend',
+      description: 'Hexagonal Spring Boot core for the Keep Dishes Going hospitality platform.',
+      details: 'Implements domain-driven design with aggregates for restaurants, menus, and orders. Provides secure owner onboarding, menu publishing flows, basket management, and Stripe-powered payments. Protected with Keycloak auth, documented REST APIs, Dockerized for CI/CD readiness, and backed by PostgreSQL.',
+      technologies: ['Java', 'Spring Boot', 'Hexagonal Architecture', 'PostgreSQL', 'Stripe', 'Keycloak'],
+      type: 'backend',
+      featured: false,
+      githubUrl: 'https://github.com/ehis6k',
+      status: 'In Development'
+    },
+    {
+      id: 4,
+      title: 'KDG Food Delivery Frontend',
+      description: 'Responsive React + TypeScript SPA delivering the customer and owner experience for KDG.',
+      details: 'Built with Material UI and React Query to offer restaurant discovery, filtering, responsive layouts, and owner dashboards. Integrates with the Spring Boot APIs, provides mock API fallbacks, and secures owner workflows through Keycloak OIDC.',
+      technologies: ['React', 'TypeScript', 'Material UI', 'React Query', 'Keycloak', 'Vite'],
       type: 'frontend',
       featured: false,
       githubUrl: 'https://github.com/ehis6k',
+      status: 'In Development'
+    },
+    {
+      id: 5,
+      title: 'LLL Sentiment Project',
+      description: 'Aspect-based sentiment analysis toolkit comparing lexicon, transformer, and LLM approaches.',
+      details: 'Delivers a unified Python interface to analyse annotated reviews, benchmark multiple sentiment engines, and surface explainable metrics. Includes dataset management, experimentation pipelines, and reporting for practical adoption.',
+      technologies: ['Python', 'Transformers', 'LLMs', 'Pandas', 'Scikit-learn'],
+      type: 'ml',
+      featured: false,
+      githubUrl: 'https://github.com/ehis6k',
       status: 'Completed'
+    },
+    {
+      id: 6,
+      title: 'Credit Card Fraud Detection',
+      description: 'End-to-end machine learning lifecycle across imbalanced financial transactions.',
+      details: 'Processes the Kaggle credit card dataset with SMOTE balancing, evaluates Random Forest, XGBoost, and Logistic Regression models, and deploys the champion model behind a FastAPI microservice with health and scoring endpoints. Includes notebooks, explainability, and reporting artifacts.',
+      technologies: ['Python', 'FastAPI', 'SMOTE', 'XGBoost', 'Scikit-learn', 'Docker'],
+      type: 'data',
+      featured: false,
+      githubUrl: 'https://github.com/ehis6k',
+      status: 'Completed'
+    },
+    {
+      id: 7,
+      title: 'EvaleBike',
+      description: 'Azure-native evaluation platform for electric bike test benches.',
+      details: 'Spring Boot services aggregate telemetry across environments, persisting to Azure PostgreSQL with Redis caching and Blob Storage for artifacts. GitLab CI/CD orchestrates validation, builds, deployments, and infrastructure provisioning, while external APIs enrich the evaluation scoring engine.',
+      technologies: ['Spring Boot', 'Azure Container Apps', 'PostgreSQL', 'Redis', 'GitLab CI/CD', 'REST APIs'],
+      type: 'cloud',
+      featured: false,
+      status: 'In Production',
+      isInternal: true
     }
   ]
 
@@ -45,7 +89,10 @@ const Projects = () => {
       enterprise: 'bg-blue-600/20 dark:bg-blue-600/20 light:bg-blue-500/20 text-blue-300 dark:text-blue-300 light:text-blue-600 border-blue-500/40 dark:border-blue-500/40 light:border-blue-400/40',
       backend: 'bg-green-600/20 dark:bg-green-600/20 light:bg-green-500/20 text-green-300 dark:text-green-300 light:text-green-600 border-green-500/40 dark:border-green-500/40 light:border-green-400/40',
       frontend: 'bg-purple-600/20 dark:bg-purple-600/20 light:bg-purple-500/20 text-purple-300 dark:text-purple-300 light:text-purple-600 border-purple-500/40 dark:border-purple-500/40 light:border-purple-400/40',
-      mobile: 'bg-orange-600/20 dark:bg-orange-600/20 light:bg-orange-500/20 text-orange-300 dark:text-orange-300 light:text-orange-600 border-orange-500/40 dark:border-orange-500/40 light:border-orange-400/40'
+      mobile: 'bg-orange-600/20 dark:bg-orange-600/20 light:bg-orange-500/20 text-orange-300 dark:text-orange-300 light:text-orange-600 border-orange-500/40 dark:border-orange-500/40 light:border-orange-400/40',
+      ml: 'bg-emerald-600/20 dark:bg-emerald-600/20 light:bg-emerald-500/20 text-emerald-300 dark:text-emerald-300 light:text-emerald-600 border-emerald-500/40 dark:border-emerald-500/40 light:border-emerald-400/40',
+      data: 'bg-cyan-600/20 dark:bg-cyan-600/20 light:bg-cyan-500/20 text-cyan-300 dark:text-cyan-300 light:text-cyan-600 border-cyan-500/40 dark:border-cyan-500/40 light:border-cyan-400/40',
+      cloud: 'bg-teal-600/20 dark:bg-teal-600/20 light:bg-teal-500/20 text-teal-300 dark:text-teal-300 light:text-teal-600 border-teal-500/40 dark:border-teal-500/40 light:border-teal-400/40'
     }
     return colors[type as keyof typeof colors] || colors.frontend
   }
@@ -135,7 +182,11 @@ const Projects = () => {
                       <span className="inline-flex items-center rounded-full bg-gray-800/50 dark:bg-gray-800/50 light:bg-gray-200/50 border border-gray-700/50 dark:border-gray-700/50 light:border-gray-300/50 px-4 py-2 text-sm font-medium text-gray-400 dark:text-gray-400 light:text-gray-600">
                         Internal Project
                       </span>
-                      <button className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-slate-600 to-gray-600 text-white font-semibold rounded-lg hover:from-slate-700 hover:to-gray-700 transition-all duration-300 hover:scale-105 group">
+                      <button
+                        type="button"
+                        onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                        className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-slate-600 to-gray-600 text-white font-semibold rounded-lg hover:from-slate-700 hover:to-gray-700 transition-all duration-300 hover:scale-105 group"
+                      >
                         <ExternalLink className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform duration-300" />
                         Let's Work Together
                       </button>

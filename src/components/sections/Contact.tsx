@@ -10,15 +10,15 @@ const Contact = () => {
       title: 'Email',
       description: 'Let\'s discuss opportunities and collaborations',
       icon: Mail,
-      href: 'mailto:gabriel@example.com',
+      href: 'mailto:gabrieluwaila@gmail.com',
       color: 'blue',
-      label: 'gabriel@example.com'
+      label: 'gabrieluwaila@gmail.com'
     },
     {
       title: 'LinkedIn',
       description: 'Connect with me professionally',
       icon: Linkedin,
-      href: 'https://linkedin.com/in/gabrieluwaila',
+      href: 'https://www.linkedin.com/in/gabriel-uwaila-183780242/',
       color: 'indigo',
       label: 'LinkedIn Profile'
     },

@@ -208,6 +208,16 @@ const Hero = () => {
                 >
                   View My Work
                 </motion.button>
+                <motion.a
+                  href="/api/cv"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-8 py-4 bg-white/10 border border-white/20 text-white font-semibold rounded-lg backdrop-blur hover:bg-white/20 transition-all duration-300"
+                  whileHover={!isMobile ? { scale: 1.05 } : {}}
+                  whileTap={!isMobile ? { scale: 0.95 } : {}}
+                >
+                  Download CV
+                </motion.a>
                 <motion.button
                   onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                   className="px-8 py-4 border-2 border-gray-600 text-gray-300 font-semibold rounded-lg hover:border-gray-500 hover:text-white transition-all duration-300"
