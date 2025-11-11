@@ -53,7 +53,7 @@ const Hero = () => {
   return (
     <section 
       id="hero" 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero pt-16"
     >
       {/* Background Effects - Simplified for mobile */}
       <div className="absolute inset-0">
