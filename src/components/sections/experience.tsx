@@ -1,7 +1,7 @@
 "use client";
 
 import { experience } from "@/data/experience";
-import { H2, H3 } from "@/components/ui/typography";
+import { H2 } from "@/components/ui/typography";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Briefcase, GraduationCap } from "lucide-react";
