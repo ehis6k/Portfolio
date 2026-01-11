@@ -29,9 +29,10 @@ import { sendEmail, validateEmailJSConfig, initEmailJS, createTemplateParams } f
 
 interface ContactFormProps {
   className?: string
+  hideHeader?: boolean
 }
 
-const ContactForm = ({ className }: ContactFormProps) => {
+const ContactForm = ({ className, hideHeader = false }: ContactFormProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [rateLimitMessage, setRateLimitMessage] = useState<string>('')
@@ -187,11 +188,18 @@ const ContactForm = ({ className }: ContactFormProps) => {
         setSubmitStatus('success')
         form.reset()
       } else {
-        const errorMessage = result.error instanceof Error 
-          ? result.error.message 
-          : typeof result.error === 'object' && result.error && 'message' in result.error
-          ? String(result.error.message)
-          : 'Failed to send email'
+        // Handle error response
+        const error = result.error
+        let errorMessage = 'Failed to send email'
+        
+        if (error instanceof Error) {
+          errorMessage = error.message
+        } else if (error && typeof error === 'object' && 'message' in error) {
+          errorMessage = String((error as { message: unknown }).message)
+        } else if (typeof error === 'string') {
+          errorMessage = error
+        }
+        
         throw new Error(errorMessage)
       }
     } catch (error) {
@@ -207,19 +215,27 @@ const ContactForm = ({ className }: ContactFormProps) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`glass-effect-dark dark:glass-effect-dark light:glass-effect border border-gray-800/30 dark:border-gray-800/30 light:border-gray-200/30 rounded-2xl p-8 ${className}`}
+      className={`bg-white/[0.05] border border-white/10 rounded-xl p-8 md:p-10 ${className}`}
     >
-      <div className="mb-6">
-        <h3 className="text-2xl font-bold text-theme-primary mb-2">
-          Get Your Quote
-        </h3>
-        <p className="text-theme-secondary">
-          Fill out the form below and I'll get back to you with a personalized quote and project details.
-        </p>
-      </div>
+      {!hideHeader && (
+        <div className="mb-8">
+          <h3 
+            className="text-2xl md:text-3xl font-bold mb-2"
+            style={{ color: '#F8F9FA' }}
+          >
+            Let's get in touch
+          </h3>
+          <p 
+            className="text-base leading-relaxed"
+            style={{ color: '#CBD5E1' }}
+          >
+            Fill out the form below and I'll get back to you with a personalized quote and project details.
+          </p>
+        </div>
+      )}
 
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           {/* Honeypot Field - Hidden from users but visible to bots */}
           <div style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }}>
             <input
@@ -236,18 +252,22 @@ const ContactForm = ({ className }: ContactFormProps) => {
             control={form.control}
             name="name"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel className="text-theme-primary">
-                  Full Name *
+              <FormItem className="space-y-2">
+                <FormLabel 
+                  className="text-sm font-semibold block"
+                  style={{ color: '#F8F9FA' }}
+                >
+                  Name <span className="text-xs font-normal" style={{ color: '#94A3B8' }}>(required)</span>
                 </FormLabel>
                 <FormControl>
                   <Input
                     placeholder="Enter your full name"
-                    className="bg-gradient-card border-gray-700 dark:border-gray-700 light:border-gray-400 text-theme-primary placeholder:text-theme-muted focus:border-blue-500 focus:ring-blue-500/20"
+                    className="bg-transparent border-0 border-b border-white/20 rounded-none px-0 py-2 focus:border-[#00D4AA] focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0 transition-colors placeholder:text-white/30"
+                    style={{ color: '#F8F9FA' }}
                     {...field}
                   />
                 </FormControl>
-                <FormMessage className="text-red-400" />
+                <FormMessage className="text-red-400 text-xs" />
               </FormItem>
             )}
           />
@@ -257,19 +277,23 @@ const ContactForm = ({ className }: ContactFormProps) => {
             control={form.control}
             name="email"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel className="text-theme-primary">
-                  Email Address *
+              <FormItem className="space-y-2">
+                <FormLabel 
+                  className="text-sm font-semibold block"
+                  style={{ color: '#F8F9FA' }}
+                >
+                  Email <span className="text-xs font-normal" style={{ color: '#94A3B8' }}>(required)</span>
                 </FormLabel>
                 <FormControl>
                   <Input
                     type="email"
-                    placeholder="Enter your email address"
-                    className="bg-gradient-card border-gray-700 dark:border-gray-700 light:border-gray-400 text-theme-primary placeholder:text-theme-muted focus:border-blue-500 focus:ring-blue-500/20"
+                    placeholder="your.email@example.com"
+                    className="bg-transparent border-0 border-b border-white/20 rounded-none px-0 py-2 focus:border-[#00D4AA] focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0 transition-colors placeholder:text-white/30"
+                    style={{ color: '#F8F9FA' }}
                     {...field}
                   />
                 </FormControl>
-                <FormMessage className="text-red-400" />
+                <FormMessage className="text-red-400 text-xs" />
               </FormItem>
             )}
           />
@@ -279,29 +303,32 @@ const ContactForm = ({ className }: ContactFormProps) => {
             control={form.control}
             name="service"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel className="text-theme-primary">
-                  Service Interest *
+              <FormItem className="space-y-2">
+                <FormLabel 
+                  className="text-sm font-semibold block"
+                  style={{ color: '#F8F9FA' }}
+                >
+                  Service Interest <span className="text-xs font-normal" style={{ color: '#94A3B8' }}>(required)</span>
                 </FormLabel>
                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                   <FormControl>
-                    <SelectTrigger className="bg-gradient-card border-gray-700 dark:border-gray-700 light:border-gray-400 text-theme-primary focus:border-blue-500 focus:ring-blue-500/20">
-                      <SelectValue placeholder="Select a service" />
+                    <SelectTrigger className="bg-transparent border-0 border-b border-white/20 rounded-none px-0 py-2 focus:border-[#00D4AA] focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0 transition-colors" style={{ color: '#F8F9FA' }}>
+                      <SelectValue placeholder="Select a service" className="placeholder:text-white/30" />
                     </SelectTrigger>
                   </FormControl>
-                  <SelectContent className="bg-section-dark border-gray-700 dark:border-gray-700 light:border-gray-400">
+                  <SelectContent className="bg-[#1A1A1A] border border-white/20">
                     {serviceOptions.map((option) => (
                       <SelectItem
                         key={option.value}
                         value={option.value}
-                        className="text-theme-primary hover:bg-gray-700 dark:hover:bg-gray-700 light:hover:bg-gray-200 focus:bg-gray-700 dark:focus:bg-gray-700 light:focus:bg-gray-200"
+                        className="text-[#F8F9FA] hover:bg-white/10 focus:bg-white/10"
                       >
                         {option.label}
                       </SelectItem>
                     ))}
                   </SelectContent>
                 </Select>
-                <FormMessage className="text-red-400" />
+                <FormMessage className="text-red-400 text-xs" />
               </FormItem>
             )}
           />
@@ -311,18 +338,22 @@ const ContactForm = ({ className }: ContactFormProps) => {
             control={form.control}
             name="message"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel className="text-theme-primary">
-                  Project Details *
+              <FormItem className="space-y-2">
+                <FormLabel 
+                  className="text-sm font-semibold block"
+                  style={{ color: '#F8F9FA' }}
+                >
+                  Message <span className="text-xs font-normal" style={{ color: '#94A3B8' }}>(required)</span>
                 </FormLabel>
                 <FormControl>
                   <Textarea
                     placeholder="Tell me about your project, timeline, and any specific requirements..."
-                    className="min-h-[120px] bg-gradient-card border-gray-700 dark:border-gray-700 light:border-gray-400 text-theme-primary placeholder:text-theme-muted focus:border-blue-500 focus:ring-blue-500/20 resize-none"
+                    className="min-h-[120px] bg-transparent border-0 border-b border-white/20 rounded-none px-0 py-2 focus:border-[#00D4AA] focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0 resize-none transition-colors placeholder:text-white/30"
+                    style={{ color: '#F8F9FA' }}
                     {...field}
                   />
                 </FormControl>
-                <FormMessage className="text-red-400" />
+                <FormMessage className="text-red-400 text-xs" />
               </FormItem>
             )}
           />
@@ -331,11 +362,12 @@ const ContactForm = ({ className }: ContactFormProps) => {
           <motion.div
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
+            className="pt-4"
           >
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-[#00D4AA] text-[#1A1A1A] hover:bg-[#26E0C4] font-semibold py-3 px-6 rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00D4AA] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1A1A1A]"
             >
               {isSubmitting ? (
                 <>
@@ -379,12 +411,15 @@ const ContactForm = ({ className }: ContactFormProps) => {
       </Form>
 
       {/* Additional Contact Info */}
-      <div className="mt-6 pt-6 border-t border-gray-800/30 dark:border-gray-800/30 light:border-gray-200/30">
-        <p className="text-sm text-theme-secondary text-center">
+      <div className="mt-8 pt-6 border-t border-white/10">
+        <p 
+          className="text-sm text-center"
+          style={{ color: '#CBD5E1' }}
+        >
           Prefer to email directly? Contact me at{' '}
           <a
             href="mailto:gabrieluwaila@gmail.com"
-            className="text-blue-400 dark:text-blue-400 light:text-blue-600 hover:text-blue-300 dark:hover:text-blue-300 light:hover:text-blue-700 transition-colors"
+            className="text-[#00D4AA] hover:text-[#26E0C4] transition-colors underline underline-offset-2"
           >
             gabrieluwaila@gmail.com
           </a>

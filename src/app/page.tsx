@@ -1,18 +1,19 @@
-import Layout from '@/components/layout/Layout'
-import Hero from '@/components/sections/Hero'
-import About from '@/components/sections/About'
-import Skills from '@/components/sections/Skills'
-import Projects from '@/components/sections/Projects'
-import Contact from '@/components/sections/Contact'
+import HeroSection from "@/components/hero/HeroSection";
+import { ExperienceSection } from "@/components/sections/experience";
+import { SkillsSection } from "@/components/sections/Skills";
+import { FeaturedProjectSection } from "@/components/sections/featured-project";
+import { ProjectArchiveSection } from "@/components/sections/project-archive";
+import { ContactSection } from "@/components/sections/Contact";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <Layout>
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Contact />
-    </Layout>
-  )
+    <>
+      <HeroSection />
+      <ExperienceSection />
+      <SkillsSection />
+      <FeaturedProjectSection />
+      <ProjectArchiveSection />
+      <ContactSection />
+    </>
+  );
 }

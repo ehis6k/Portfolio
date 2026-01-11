@@ -28,7 +28,7 @@ const About = () => {
           <FadeIn delay={0.3}>
             <div className="space-y-6">
               <SlideUp delay={0.4}>
-                <Card className="glass-effect-dark hover:bg-white/[0.02] transition-all duration-300">
+                <Card className="glass-effect hover:bg-gray-50 transition-all duration-300">
                   <CardContent className="p-8">
                     <h3 className="text-2xl font-bold text-theme-primary mb-4">My Journey</h3>
                     <p className="text-theme-secondary leading-relaxed mb-4">
@@ -46,7 +46,7 @@ const About = () => {
               </SlideUp>
 
               <SlideUp delay={0.6}>
-                <Card className="glass-effect-dark hover:bg-white/[0.02] transition-all duration-300">
+                <Card className="glass-effect hover:bg-gray-50 transition-all duration-300">
                   <CardContent className="p-8">
                     <h3 className="text-2xl font-bold text-theme-primary mb-4">Professional Experience</h3>
                     <p className="text-theme-secondary leading-relaxed mb-4">
@@ -65,7 +65,7 @@ const About = () => {
           <FadeIn delay={0.5}>
             <div className="space-y-6">
               <SlideUp delay={0.7}>
-                <Card className="glass-effect-dark hover:bg-white/[0.02] transition-all duration-300">
+                <Card className="glass-effect hover:bg-gray-50 transition-all duration-300">
                   <CardContent className="p-8">
                     <h3 className="text-2xl font-bold text-theme-primary mb-6">Content Creation</h3>
                     <p className="text-theme-secondary leading-relaxed mb-4">
@@ -75,16 +75,16 @@ const About = () => {
                       my journey with the community.
                     </p>
                     <div className="flex flex-wrap gap-2 mt-4">
-                      <Badge variant="secondary" className="bg-gradient-card text-theme-secondary hover:bg-gradient-card">
+                      <Badge variant="outline" className="bg-gradient-card text-theme-secondary hover:bg-gradient-card">
                         Vlogging
                       </Badge>
-                      <Badge variant="secondary" className="bg-gradient-card text-theme-secondary hover:bg-gradient-card">
+                      <Badge variant="outline" className="bg-gradient-card text-theme-secondary hover:bg-gradient-card">
                         Bass Guitar
                       </Badge>
-                      <Badge variant="secondary" className="bg-gradient-card text-theme-secondary hover:bg-gradient-card">
+                      <Badge variant="outline" className="bg-gradient-card text-theme-secondary hover:bg-gradient-card">
                         Drums
                       </Badge>
-                      <Badge variant="secondary" className="bg-gradient-card text-theme-secondary hover:bg-gradient-card">
+                      <Badge variant="outline" className="bg-gradient-card text-theme-secondary hover:bg-gradient-card">
                         YouTube
                       </Badge>
                     </div>
@@ -93,7 +93,7 @@ const About = () => {
               </SlideUp>
 
               <SlideUp delay={0.9}>
-                <Card className="glass-effect-dark hover:bg-white/[0.02] transition-all duration-300 border-l-4 border-blue-500">
+                <Card className="glass-effect hover:bg-gray-50 transition-all duration-300 border-l-4 border-blue-500">
                   <CardContent className="p-8">
                     <h3 className="text-2xl font-bold text-theme-primary mb-4">
                       <span className="text-blue-400">Now</span>
@@ -120,7 +120,7 @@ const About = () => {
             </SlideUp>
             <StaggeredFadeIn delay={1.1}>
               <div className="grid md:grid-cols-3 gap-8">
-                <Card className="glass-effect-dark hover:bg-white/[0.02] transition-all duration-300 group">
+                <Card className="glass-effect hover:bg-gray-50 transition-all duration-300 group">
                   <CardContent className="p-6 text-center">
                     <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                       <span className="text-2xl">🚀</span>
@@ -132,7 +132,7 @@ const About = () => {
                   </CardContent>
                 </Card>
 
-                <Card className="glass-effect-dark hover:bg-white/[0.02] transition-all duration-300 group">
+                <Card className="glass-effect hover:bg-gray-50 transition-all duration-300 group">
                   <CardContent className="p-6 text-center">
                     <div className="w-16 h-16 bg-gradient-to-r from-slate-500 to-gray-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                       <span className="text-2xl">🎯</span>
@@ -144,7 +144,7 @@ const About = () => {
                   </CardContent>
                 </Card>
 
-                <Card className="glass-effect-dark hover:bg-white/[0.02] transition-all duration-300 group">
+                <Card className="glass-effect hover:bg-gray-50 transition-all duration-300 group">
                   <CardContent className="p-6 text-center">
                     <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-indigo-700 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                       <span className="text-2xl">🤝</span>

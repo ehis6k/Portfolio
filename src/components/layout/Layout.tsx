@@ -1,6 +1,4 @@
 import React from 'react'
-import Header from './Header'
-import Footer from './Footer'
 import ScrollToTop from '@/components/ui/scroll-to-top'
 
 interface LayoutProps {
@@ -9,12 +7,10 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="flex min-h-screen flex-col">
-      <Header />
-      <main className="flex-grow">{children}</main>
-      <Footer />
+    <>
+      {children}
       <ScrollToTop />
-    </div>
+    </>
   )
 }
 

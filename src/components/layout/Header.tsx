@@ -49,7 +49,7 @@ const Header = () => {
   ]
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-section-dark/80 backdrop-blur-xl border-b border-gray-800/50">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo/Brand */}
@@ -92,7 +92,7 @@ const Header = () => {
             </SheetTrigger>
             <SheetContent 
               side="right" 
-              className="w-[320px] bg-section-dark border-l border-gray-700/50 dark:border-gray-700/50 light:border-gray-300/50 backdrop-blur-2xl shadow-2xl"
+              className="w-[320px] bg-white border-l border-gray-300/50 backdrop-blur-2xl shadow-2xl"
             >
               <SheetHeader>
                 <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
@@ -101,7 +101,7 @@ const Header = () => {
               {/* Mobile Menu Content */}
               <div className="flex flex-col h-full">
                 {/* Header Section */}
-                <div className="flex flex-col items-center text-center space-y-4 pt-8 pb-6 px-6 border-b border-gray-800/50">
+                <div className="flex flex-col items-center text-center space-y-4 pt-8 pb-6 px-6 border-b border-gray-200/50">
                   {/* Mobile Logo */}
                   <button 
                     onClick={() => {
@@ -145,7 +145,7 @@ const Header = () => {
                 </nav>
                 
                 {/* Footer Section */}
-                <div className="border-t border-gray-800/50 pt-6 pb-4">
+                <div className="border-t border-gray-200/50 pt-6 pb-4">
                   <div className="flex flex-col space-y-4">
                     {/* Social Links */}
                     <div className="flex items-center justify-center space-x-6">

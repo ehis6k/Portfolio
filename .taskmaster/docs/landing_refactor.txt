@@ -1,0 +1,194 @@
+Here is the implementation-ready PRD for the Hero/Landing redesign, structured using the **RPG Method** for `.taskmaster`.
+
+---
+
+<overview>
+## Problem Statement
+The current hero section is a generic, centered "wall of text" with excessive gradients that feels like an AI template. It fails to highlight the candidate's specific edge (Fujifilm experience, Backend focus, Game AI). The user needs a strong, authentic introduction that balances "Engineering Precision" with "Human Personality."
+
+## Target Users
+- **Recruiters**: Need to see "Fujifilm" and "Full-Stack" immediately.
+- **Engineering Leads**: Need to feel a sense of code quality and architectural thinking through the visual design (clean lines, structure over fluff).
+
+## Success Metrics
+- **Identity Clarity**: User understands "CS Student + Fujifilm Staff" within 3 seconds.
+- **Asset Utilization**: The specific profile image (`assets/img/profile.jpg` or similar) is successfully integrated into the layout.
+- **Engagement**: Primary CTA ("View Work") is the clear visual focal point.
+
+</overview>
+
+---
+
+<functional-decomposition>
+## Capability Tree
+
+### Capability: Hero Presentation
+*The primary "Handshake" of the website.*
+
+#### Feature: Split-Pane Narrative
+- **Description**: A 2-column layout (Desktop) / Vertical Stack (Mobile) separating narrative text from visual identity.
+- **Inputs**: Copy (Headline, Bio), Profile Image from `assets/img`.
+- **Outputs**: Responsive Hero Component.
+- **Behavior**:
+    - Left Col: Hierarchy of specific text (Role -> Edge -> Context).
+    - Right Col: Visual anchor using the profile image with a "Technical Frame" treatment.
+
+#### Feature: Context Badge System
+- **Description**: A dynamic-looking "Status" chip.
+- **Inputs**: Current Role ("IT Support @ Fujifilm"), Current Status ("Final Year CS").
+- **Outputs**: Pill component.
+- **Behavior**: Pulsing "Live" dot (Green) to indicate active status.
+
+#### Feature: Credibility Band (Below Fold)
+- **Description**: A slim, high-contrast row immediately following the hero to ground the claims.
+- **Inputs**: List of core competencies (e.g., "Spring Boot Ecosystem", "Game AI", "React/Next.js").
+- **Outputs**: Horizontal flex row with mono-spaced typography.
+- **Behavior**: Static or very slow marquee.
+
+</functional-decomposition>
+
+---
+
+<content-requirements>
+## Hero Copy
+**Headline**:
+"Engineering Scalable Backends & Interactive Systems."
+*(Alternative if too long: "Full-Stack Engineer. Backend Specialist.")*
+
+**Subheadline**:
+"Final-year Computer Science student and IT Staff at **Fujifilm**. I bridge the gap between complex system architecture and responsive frontend experiences."
+
+**Primary CTA**:
+"View Projects" (Links to `#projects`)
+
+**Secondary CTA**:
+"Download Resume" (Links to `/resume.pdf`)
+
+**Status Chip**:
+"🟢 Currently: IT Support @ Fujifilm Europe"
+
+## Tone Guidelines
+- **Confident**: Use periods, not exclamation points.
+- **Concrete**: Mention specific stacks (Spring Boot, .NET) rather than generic "coding."
+- **Human**: The visuals provide the human element; the text provides the professional element.
+
+</content-requirements>
+
+---
+
+<structural-decomposition>
+## Repository Structure & Assets
+
+```
+src/
+├── components/
+│   ├── hero/
+│   │   ├── HeroSection.tsx      # Main container
+│   │   ├── HeroVisual.tsx       # Image handling & decoration
+│   │   └── StatusBadge.tsx      # "Currently at Fujifilm" chip
+│   └── shared/
+│       └── TechTicker.tsx       # The band below the hero
+├── data/
+│   └── hero-content.ts          # Text strings and image paths
+```
+
+## Image Strategy
+The system must use existing images from `assets/img`.
+1.  **Profile Image**: Use the provided selfie (cap/phone) for a "Gen Z / Maker" vibe, OR a professional headshot if available in the folder.
+    -   *Treatment*: Do not just drop the square image. Place it inside a styled container (e.g., a slightly rounded rectangle with a 1px border resembling a polaroid or a data card).
+2.  **Context Imagery**: If a "Fujifilm" logo or workplace photo exists in `assets/img`, use it as a subtle watermark or small badge near the "Status Chip."
+
+</structural-decomposition>
+
+---
+
+<visual-design-system>
+## Design Tokens (Hero Specific)
+
+**Theme**: "Dark IDE Precision" (Clean, Matte, Structured)
+
+-   **Background**: `#1A1A1A` (Charcoal).
+-   **Surface**: `#1A1A1A` (Charcoal for cards/image backgrounds).
+-   **Primary Accent**: `#00D4AA` (Teal - for primary CTA and key highlights).
+-   **Secondary Accent**: `#FFD700` (Gold - for secondary highlights and emphasis).
+-   **Text High**: `#F8F9FA` (Off-white - Headlines).
+-   **Text Muted**: `#CBD5E1` (Light Grey - Body).
+
+**Typography**:
+-   **Headline**: Sans-serif (Inter/Geist), Weights: 700/600. Tight tracking.
+-   **Monospace**: JetBrains Mono. Used for: Status Badge, "Backend Engineer" tag, and the Credibility Band.
+
+**Layout Grid**:
+-   **Desktop**: 12-column grid. Text occupies cols 1-7, Image occupies 8-12.
+-   **Mobile**: Single column. Image moves *between* Headline and Bio, or *above* Headline depending on image aspect ratio.
+
+</visual-design-system>
+
+---
+
+<interaction-ux>
+## Key Interactions
+
+1.  **CTA Hover**:
+    -   *Trigger*: Hover on "View Projects".
+    -   *Effect*: Background shifts from Teal to slightly lighter Teal, arrow icon moves 2px right.
+    -   *Transition*: `ease-out duration-200`.
+
+2.  **Image Entrance**:
+    -   *Trigger*: Page Load.
+    -   *Effect*: The Profile Image slides in subtly from the right (10px) and opacity fades 0->1.
+    -   *Delay*: 100ms after text load.
+
+3.  **Scroll Indicator**:
+    -   *Trigger*: Page Load.
+    -   *Effect*: A simple "Scroll Down" chevron or line at the bottom center of the hero viewport.
+    -   *Animation*: Subtle bounce `animate-bounce`.
+
+</interaction-ux>
+
+---
+
+<component-implementation>
+## Component Specifications
+
+### 1. `HeroSection.tsx`
+-   **Responsibility**: Layout wrapper.
+-   **Props**: None (fetches data from `hero-content.ts`).
+-   **Style**: `min-h-[90vh] flex items-center justify-center relative overflow-hidden`.
+-   **Structure**:
+    -   `div.container` (Max width 1280px)
+        -   `div.grid` (Grid layout)
+
+### 2. `HeroVisual.tsx`
+-   **Responsibility**: Renders the profile image with style.
+-   **Logic**:
+    -   Import image from `../../public/assets/img/[filename]`.
+    -   Apply a "glitch" or "border" effect.
+    -   *Design Detail*: Place a semi-transparent distinct geometric shape (e.g., a wireframe cube or code bracket SVG) behind the image to add depth without clutter.
+
+### 3. `StatusBadge.tsx`
+-   **Responsibility**: Shows current role.
+-   **Style**: `inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-[#00D4AA]` (using Primary Accent Teal).
+
+### 4. `TechTicker.tsx` (The Band)
+-   **Responsibility**: Immediate social proof below hero.
+-   **Content**: ["Java / Spring Boot", "React / Next.js", "C# / .NET", "Game AI", "PostgreSQL"].
+-   **Style**: `w-full border-y border-white/5 bg-white/[0.02] py-4`.
+-   **Layout**: Flex row, justify-around (desktop) or scrolling marquee (mobile).
+
+</component-implementation>
+
+---
+
+<acceptance-criteria>
+## Definition of Done
+
+1.  **Visual Difference**: The hero no longer looks like the generic dark template (screenshot 1). It uses the split layout and specific typography defined above.
+2.  **Asset Usage**: The profile image provided (man in cap with phone) is displayed on the right side (desktop) or top/middle (mobile), styled professionally (e.g., grayscale or high-contrast filter to match the theme).
+3.  **Content Accuracy**: Text clearly states "Final-year Student" and "Fujifilm" without user needing to scroll.
+4.  **Responsiveness**:
+    -   Desktop: Text Left, Image Right.
+    -   Mobile: Stacked vertical. Text readable without zooming.
+5.  **Performance**: LCP (Largest Contentful Paint) under 1.5s. Image is optimized (Next.js `<Image>` component used).
+
+</acceptance-criteria>
