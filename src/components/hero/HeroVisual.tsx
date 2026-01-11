@@ -72,7 +72,7 @@ export default function HeroVisual({ profileImage, className }: HeroVisualProps)
             src={profileImage.src}
             alt={profileImage.alt}
             fill
-            sizes="(min-width: 1024px) 500px, (min-width: 768px) 384px, 256px"
+            sizes="(min-width: 1024px) 384px, (min-width: 768px) 320px, 256px"
             className="object-cover rounded-lg"
             priority
             quality={90}

@@ -24,7 +24,7 @@ export const experience: ExperienceItem[] = [
     company: "Karel de Grote University College",
     location: "Belgium",
     start: "2021",
-    end: "2025",
+    end: "2026",
     highlights: [
       "Final year student specializing in full-stack development and software engineering",
       "Strong foundation in software development principles and methodologies",

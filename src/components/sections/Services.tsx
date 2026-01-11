@@ -32,30 +32,30 @@ const ServiceCard = ({ service, index }: { service: Service; index: number }) =>
           <div className="flex items-start space-x-4 mb-4">
             <div className="w-12 h-12 bg-teal/10 rounded-xl flex items-center justify-center text-teal flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
               <Icon className="w-6 h-6" />
-            </div>
+        </div>
             <div className="flex-1">
               <CardTitle className="text-xl font-bold text-charcoal">
-                {service.title}
+            {service.title}
               </CardTitle>
-            </div>
-          </div>
+        </div>
+      </div>
         </CardHeader>
 
         <CardContent className="flex-1">
           <p className="text-slate-600 text-sm leading-relaxed mb-6">
-            {service.description}
-          </p>
+        {service.description}
+      </p>
 
           <div className="space-y-2">
-            {service.features.map((feature, idx) => (
-              <div key={idx} className="flex items-center space-x-2">
+        {service.features.map((feature, idx) => (
+          <div key={idx} className="flex items-center space-x-2">
                 <CheckCircle className="w-4 h-4 text-teal flex-shrink-0" />
                 <span className="text-sm text-slate-700">
-                  {feature}
-                </span>
-              </div>
-            ))}
+              {feature}
+            </span>
           </div>
+        ))}
+      </div>
         </CardContent>
       </Card>
     </motion.div>
@@ -146,8 +146,8 @@ const Services = () => {
                   className="px-8"
                 >
                   <Link href="/contact" className="inline-flex items-center">
-                    <span>Get Your Quote</span>
-                    <ArrowRight className="w-5 h-5 ml-2" />
+                <span>Get Your Quote</span>
+                <ArrowRight className="w-5 h-5 ml-2" />
                   </Link>
                 </Button>
               </motion.div>

@@ -53,42 +53,42 @@ export function Footer() {
                 <p className="text-sm text-slate-600 leading-relaxed">
                   {profile.learning}
                 </p>
-              </div>
             </div>
-          </div>
+            </div>
+        </div>
 
           {/* Right: Socials */}
           <div className="flex flex-col gap-4 border-t lg:border-t-0 lg:border-l border-slate-100 pt-8 lg:pt-0 lg:pl-10">
             <p className="text-sm font-semibold text-charcoal">Connect</p>
             <div className="flex flex-col gap-3">
-              <a
-                href={profile.links.github}
-                target="_blank"
-                rel="noopener noreferrer"
+            <a
+              href={profile.links.github}
+              target="_blank"
+              rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm text-slate-600 hover:text-teal transition-colors group"
-                aria-label="GitHub profile"
-              >
+              aria-label="GitHub profile"
+            >
                 <Github className="w-4 h-4 group-hover:scale-110 transition-transform" aria-hidden="true" />
-                <span>GitHub</span>
-              </a>
-              <a
-                href={profile.links.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
+              <span>GitHub</span>
+            </a>
+            <a
+              href={profile.links.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm text-slate-600 hover:text-teal transition-colors group"
-                aria-label="LinkedIn profile"
-              >
+              aria-label="LinkedIn profile"
+            >
                 <Linkedin className="w-4 h-4 group-hover:scale-110 transition-transform" aria-hidden="true" />
-                <span>LinkedIn</span>
-              </a>
-              <a
-                href={profile.links.email}
+              <span>LinkedIn</span>
+            </a>
+            <a
+              href={profile.links.email}
                 className="inline-flex items-center gap-2 text-sm text-slate-600 hover:text-teal transition-colors group"
-                aria-label="Send email"
-              >
+              aria-label="Send email"
+            >
                 <Mail className="w-4 h-4 group-hover:scale-110 transition-transform" aria-hidden="true" />
-                <span>Email</span>
-              </a>
+              <span>Email</span>
+            </a>
             </div>
           </div>
         </div>
@@ -97,4 +97,4 @@ export function Footer() {
   );
 }
 
-export default Footer;
+export default Footer; 

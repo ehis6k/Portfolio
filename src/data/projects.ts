@@ -2,18 +2,12 @@ import { Project } from "./types";
 
 /**
  * Projects data with image mappings
- * 
+ *
  * Image Asset Mapping (public/assets/img/):
- * - AMS (featured): /assets/img/fujifilm/dev_work.jpeg (hero), dev_work2.jpeg, dev_work3.jpeg available for variants
- * - EvaleBike: /assets/img/kdg/evalbike.jpeg ✅
- * - Other projects: Need actual project screenshots/images (currently using placeholder)
- * 
- * TODO: Add actual images for:
- * - Spring Boot Backend API
- * - KDG Restaurant Backend  
- * - KDG Food Delivery Frontend
- * - LLL Sentiment Project
- * - Credit Card Fraud Detection
+ * - AMS (featured): /assets/img/fujifilm/dev_work.jpeg (hero)
+ * - EvaleBike: /assets/img/kdg/evalbike.jpeg
+ * - Adullam: /assets/img/adullam/adullam_dev.jpeg (or design.jpeg)
+ * - Other projects use placeholders until screenshots are added
  */
 
 export const projects: Project[] = [
@@ -27,7 +21,6 @@ export const projects: Project[] = [
     status: "in-progress",
     tags: ["Featured", "Enterprise", "Internal"],
     stack: [".NET 9", "Blazor Server", "C#", "SQL Server", "Active Directory"],
-    // Hero image for featured case study - additional images available: dev_work2.jpeg, dev_work3.jpeg, staging_devices.jpeg
     image: "/assets/img/fujifilm/dev_work.jpeg",
     imageAlt:
       "Asset Management System interface displaying hardware asset catalog with search and filter functionality",
@@ -57,71 +50,84 @@ export const projects: Project[] = [
     },
   },
   {
-    id: "spring-boot-backend-api",
-    name: "Spring Boot Backend API",
-    slug: "spring-boot-backend-api",
+    id: "bandit-games",
+    name: "BanditGames (Microservices Platform)",
+    slug: "bandit-games",
     summary:
-      "A robust REST API built with Spring Boot showcasing modern backend development practices and clean architecture.",
-    role: "Backend Developer",
+      "Enterprise-level full-stack architecture with containerized microservices for gaming and AI.",
+    role: "Full-stack Developer",
     status: "completed",
-    tags: ["Backend", "API", "Open Source"],
-    stack: ["Java", "Spring Boot", "PostgreSQL", "JWT", "Maven", "JUnit"],
-    // TODO: Add actual project screenshot/image
-    image: "/assets/img/kdg/evalbike.jpeg", // Placeholder - needs actual project image
-    imageAlt:
-      "Spring Boot REST API code structure showing controllers, services, and repository layers with JWT authentication",
-    featured: false,
-    links: {
-      github: "https://github.com/ehis6k",
-    },
-  },
-  {
-    id: "kdg-restaurant-backend",
-    name: "KDG Restaurant Backend",
-    slug: "kdg-restaurant-backend",
-    summary:
-      "Hexagonal Spring Boot core for the Keep Dishes Going hospitality platform.",
-    role: "Backend Developer",
-    status: "in-progress",
-    tags: ["Backend", "Microservices", "DDD"],
+    tags: ["Microservices", "AI/ML", "Full-stack"],
     stack: [
-      "Java",
       "Spring Boot",
-      "Hexagonal Architecture",
-      "PostgreSQL",
-      "Stripe",
-      "Keycloak",
+      "React",
+      "Docker",
+      "MCTS/Minimax AI",
+      "Microservices",
     ],
-    // TODO: Add actual project screenshot/image
-    image: "/assets/img/kdg/evalbike.jpeg", // Placeholder - needs actual project image
+    image: "/assets/img/kdg/BanditGames.JPG",
     imageAlt:
-      "KDG Restaurant Backend architecture diagram showing hexagonal design with domain, application, and infrastructure layers",
+      "BanditGames microservices architecture diagram showing backend, frontend, and AI services orchestration",
     featured: false,
     links: {
       github: "https://github.com/ehis6k",
     },
   },
   {
-    id: "kdg-food-delivery-frontend",
-    name: "KDG Food Delivery Frontend",
-    slug: "kdg-food-delivery-frontend",
+    id: "adullam-bible-app",
+    name: "Adullam - Bible Journal App",
+    slug: "adullam-bible-app",
     summary:
-      "Responsive React + TypeScript SPA delivering the customer and owner experience for KDG.",
-    role: "Frontend Developer",
+      "Beautiful React Native app for Bible journaling with AI-powered insights and multi-language support.",
+    role: "Mobile Developer",
     status: "in-progress",
-    tags: ["Frontend", "React", "TypeScript"],
+    tags: ["Mobile", "React Native", "AI"],
     stack: [
-      "React",
+      "React Native",
       "TypeScript",
-      "Material UI",
-      "React Query",
-      "Keycloak",
-      "Vite",
+      "Firebase",
+      "OpenAI API",
+      "i18next",
     ],
-    // TODO: Add actual project screenshot/image
-    image: "/assets/img/kdg/evalbike.jpeg", // Placeholder - needs actual project image
+    image: "/assets/img/adullam/adullam_dev.jpeg",
     imageAlt:
-      "KDG Food Delivery frontend interface showing restaurant listings, menu items, and responsive customer dashboard",
+      "Adullam mobile app interface showing Bible journal entries and AI-powered insights",
+    featured: false,
+    links: {
+      github: "https://github.com/ehis6k",
+    },
+  },
+  {
+    id: "multi-agent-dai6",
+    name: "Multi-Agent AI Systems",
+    slug: "multi-agent-dai6",
+    summary:
+      "Advanced AI project showcasing multi-agent systems and reinforcement learning with a dedicated frontend.",
+    role: "AI Engineer",
+    status: "completed",
+    tags: ["AI/ML", "Reinforcement Learning", "Research"],
+    stack: ["Python", "Multi-Agent Systems", "Reinforcement Learning", "React"],
+    image: "/assets/img/kdg/evalbike.jpeg", // Placeholder
+    imageAlt:
+      "Multi-agent system simulation interface showing agent interactions and learning progress",
+    featured: false,
+    links: {
+      github: "https://github.com/ehis6k",
+    },
+  },
+  {
+    id: "programming-6-fullstack",
+    name: "Enterprise Full-stack System",
+    slug: "programming-6-fullstack",
+    summary:
+      "Production-ready Spring Boot backend and React frontend with automated CI/CD pipelines.",
+    role: "Full-stack Developer",
+    status: "completed",
+    tags: ["Full-stack", "CI/CD", "Enterprise"],
+    stack: ["Spring Boot", "React", "CI/CD", "Automated Testing"],
+    image: "/assets/img/kdg/evalbike.jpeg", // Placeholder
+    imageAlt:
+      "CI/CD pipeline dashboard and application interface showing automated deployment status",
     featured: false,
     links: {
       github: "https://github.com/ehis6k",
@@ -142,60 +148,31 @@ export const projects: Project[] = [
       "PostgreSQL",
       "Redis",
       "GitLab CI/CD",
-      "REST APIs",
     ],
     image: "/assets/img/kdg/evalbike.jpeg",
     imageAlt:
-      "EvaleBike evaluation platform dashboard showing telemetry data from electric bike test benches with Azure cloud infrastructure",
+      "EvaleBike evaluation platform dashboard showing telemetry data from electric bike test benches",
     featured: false,
     links: {
       // Internal project
     },
   },
   {
-    id: "lll-sentiment-project",
-    name: "LLL Sentiment Project",
-    slug: "lll-sentiment-project",
+    id: "deep-learning-rl",
+    name: "Deep Learning & RL Research",
+    slug: "deep-learning-rl",
     summary:
-      "Aspect-based sentiment analysis toolkit comparing lexicon, transformer, and LLM approaches.",
+      "Deep learning and reinforcement learning implementations demonstrating ML depth.",
     role: "ML Engineer",
     status: "completed",
-    tags: ["ML", "NLP", "Research"],
-    stack: ["Python", "Transformers", "LLMs", "Pandas", "Scikit-learn"],
-    // TODO: Add actual project screenshot/image
-    image: "/assets/img/kdg/evalbike.jpeg", // Placeholder - needs actual project image
+    tags: ["AI/ML", "Deep Learning", "Research"],
+    stack: ["Python", "PyTorch", "TensorFlow", "Neural Networks"],
+    image: "/assets/img/kdg/evalbike.jpeg", // Placeholder
     imageAlt:
-      "Sentiment analysis toolkit interface comparing results from lexicon-based, transformer, and LLM sentiment engines with explainable metrics",
-    featured: false,
-    links: {
-      github: "https://github.com/ehis6k",
-    },
-  },
-  {
-    id: "credit-card-fraud-detection",
-    name: "Credit Card Fraud Detection",
-    slug: "credit-card-fraud-detection",
-    summary:
-      "End-to-end machine learning lifecycle across imbalanced financial transactions.",
-    role: "ML Engineer",
-    status: "completed",
-    tags: ["ML", "Data Science", "API"],
-    stack: [
-      "Python",
-      "FastAPI",
-      "SMOTE",
-      "XGBoost",
-      "Scikit-learn",
-      "Docker",
-    ],
-    // TODO: Add actual project screenshot/image
-    image: "/assets/img/kdg/evalbike.jpeg", // Placeholder - needs actual project image
-    imageAlt:
-      "Credit card fraud detection model pipeline showing SMOTE balancing, XGBoost classifier, and FastAPI deployment with performance metrics",
+      "Neural network training curves and reinforcement learning agent performance metrics",
     featured: false,
     links: {
       github: "https://github.com/ehis6k",
     },
   },
 ];
-

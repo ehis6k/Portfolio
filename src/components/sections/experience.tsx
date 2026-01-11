@@ -92,7 +92,11 @@ export function ExperienceSection() {
               </h3>
             </div>
 
-            {education.map((item) => (
+            {education.map((item) => {
+              const graduationYear = item.end !== "Present" ? item.end.slice(-2) : "";
+              const displayYear = item.end !== "Present" ? `Class of '${graduationYear}` : item.end;
+              
+              return (
               <Card key={item.id}>
                 <CardHeader>
                   <div className="flex items-start justify-between gap-3">
@@ -103,7 +107,7 @@ export function ExperienceSection() {
                         {item.location && ` · ${item.location}`}
                       </p>
                       <p className="text-xs text-slate-500 mt-1">
-                        {item.start} – {item.end}
+                        {displayYear}
                       </p>
                     </div>
                     <Badge variant="outline">Education</Badge>
@@ -121,7 +125,8 @@ export function ExperienceSection() {
                   </CardContent>
                 )}
               </Card>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
