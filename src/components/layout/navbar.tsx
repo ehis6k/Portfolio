@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button";
 import { profile } from "@/data/profile";
 
 const sections = [
-  { href: "#about", label: "About", sectionId: "about", isPage: false },
   { href: "#experience", label: "Experience", sectionId: "experience", isPage: false },
   { href: "#projects", label: "Projects", sectionId: "projects", isPage: false },
   { href: "/services", label: "Services", sectionId: null, isPage: true },

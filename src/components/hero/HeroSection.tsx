@@ -25,7 +25,7 @@ export default function HeroSection({
         style={{ backgroundColor: '#1A1A1A' }}
       >
         {/* Inner container with max-width and responsive grid */}
-        <div className="w-full max-w-[1280px] px-4 md:px-6 lg:px-8 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center py-8 lg:py-12">
+        <div className="w-full max-w-[1280px] px-4 md:px-6 lg:px-8 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center pt-8 pb-24 lg:py-12">
           {/* Text/Content column - Desktop: cols 1-7, Mobile: full width */}
           <div className="col-span-1 lg:col-span-7 flex flex-col gap-4 lg:gap-6 order-2 lg:order-1">
             <StatusBadge status={content.status} />

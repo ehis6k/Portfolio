@@ -36,7 +36,7 @@ export const heroContent: HeroContent = {
     },
     {
       label: "Download Resume",
-      href: "/resume.pdf",
+      href: "/api/cv",
       variant: "secondary",
     },
   ],
