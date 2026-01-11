@@ -86,13 +86,13 @@ const Projects = () => {
 
   const getTypeColor = (type: string) => {
     const colors = {
-      enterprise: 'bg-blue-600/20 dark:bg-blue-600/20 light:bg-blue-500/20 text-blue-300 dark:text-blue-300 light:text-blue-600 border-blue-500/40 dark:border-blue-500/40 light:border-blue-400/40',
-      backend: 'bg-green-600/20 dark:bg-green-600/20 light:bg-green-500/20 text-green-300 dark:text-green-300 light:text-green-600 border-green-500/40 dark:border-green-500/40 light:border-green-400/40',
-      frontend: 'bg-purple-600/20 dark:bg-purple-600/20 light:bg-purple-500/20 text-purple-300 dark:text-purple-300 light:text-purple-600 border-purple-500/40 dark:border-purple-500/40 light:border-purple-400/40',
-      mobile: 'bg-orange-600/20 dark:bg-orange-600/20 light:bg-orange-500/20 text-orange-300 dark:text-orange-300 light:text-orange-600 border-orange-500/40 dark:border-orange-500/40 light:border-orange-400/40',
-      ml: 'bg-emerald-600/20 dark:bg-emerald-600/20 light:bg-emerald-500/20 text-emerald-300 dark:text-emerald-300 light:text-emerald-600 border-emerald-500/40 dark:border-emerald-500/40 light:border-emerald-400/40',
-      data: 'bg-cyan-600/20 dark:bg-cyan-600/20 light:bg-cyan-500/20 text-cyan-300 dark:text-cyan-300 light:text-cyan-600 border-cyan-500/40 dark:border-cyan-500/40 light:border-cyan-400/40',
-      cloud: 'bg-teal-600/20 dark:bg-teal-600/20 light:bg-teal-500/20 text-teal-300 dark:text-teal-300 light:text-teal-600 border-teal-500/40 dark:border-teal-500/40 light:border-teal-400/40'
+      enterprise: 'bg-blue-500/20 text-blue-600 border-blue-400/40',
+      backend: 'bg-green-500/20 text-green-600 border-green-400/40',
+      frontend: 'bg-purple-500/20 text-purple-600 border-purple-400/40',
+      mobile: 'bg-orange-500/20 text-orange-600 border-orange-400/40',
+      ml: 'bg-emerald-500/20 text-emerald-600 border-emerald-400/40',
+      data: 'bg-cyan-500/20 text-cyan-600 border-cyan-400/40',
+      cloud: 'bg-teal-500/20 text-teal-600 border-teal-400/40'
     }
     return colors[type as keyof typeof colors] || colors.frontend
   }
@@ -120,7 +120,7 @@ const Projects = () => {
             {projects.map((project, index) => (
               <div
                 key={project.id}
-                className={`glass-effect-dark dark:glass-effect-dark light:glass-effect border border-gray-800/30 dark:border-gray-800/30 light:border-gray-200/30 rounded-2xl p-8 hover:border-gray-700/50 dark:hover:border-gray-700/50 light:hover:border-gray-300/50 transition-all duration-300 group ${
+                className={`glass-effect border border-gray-200/30 rounded-2xl p-8 hover:border-gray-300/50 transition-all duration-300 group ${
                   project.featured ? 'border-l-4 border-l-blue-500' : ''
                 }`}
               >
@@ -130,7 +130,7 @@ const Projects = () => {
                       {project.title}
                     </h3>
                     {project.featured && (
-                      <span className="inline-flex items-center rounded-full bg-gradient-to-r from-blue-600/20 to-indigo-600/20 dark:from-blue-600/20 dark:to-indigo-600/20 light:from-blue-500/20 light:to-indigo-500/20 border border-blue-500/40 dark:border-blue-500/40 light:border-blue-400/40 px-3 py-1 text-sm font-medium text-blue-300 dark:text-blue-300 light:text-blue-600">
+                      <span className="inline-flex items-center rounded-full bg-gradient-to-r from-blue-500/20 to-indigo-500/20 border border-blue-400/40 px-3 py-1 text-sm font-medium text-blue-600">
                         Featured
                       </span>
                     )}
@@ -139,7 +139,7 @@ const Projects = () => {
                     <span className={`inline-flex items-center rounded-full border px-3 py-1 text-sm font-medium ${getTypeColor(project.type)}`}>
                       {project.type.charAt(0).toUpperCase() + project.type.slice(1)}
                     </span>
-                    <span className="inline-flex items-center rounded-full bg-gray-800/50 dark:bg-gray-800/50 light:bg-gray-200/50 border border-gray-700/50 dark:border-gray-700/50 light:border-gray-300/50 px-3 py-1 text-sm font-medium text-gray-300 dark:text-gray-300 light:text-gray-700">
+                    <span className="inline-flex items-center rounded-full bg-gray-200/50 border border-gray-300/50 px-3 py-1 text-sm font-medium text-gray-700">
                       {project.status}
                     </span>
                   </div>
@@ -158,7 +158,7 @@ const Projects = () => {
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="inline-flex items-center rounded-full bg-gray-800/50 dark:bg-gray-800/50 light:bg-gray-200/50 border border-gray-700/50 dark:border-gray-700/50 light:border-gray-300/50 px-3 py-1 text-sm font-medium text-gray-300 dark:text-gray-300 light:text-gray-700 hover:bg-gray-700/50 dark:hover:bg-gray-700/50 light:hover:bg-gray-300/50 hover:border-gray-600/50 dark:hover:border-gray-600/50 light:hover:border-gray-400/50 transition-all duration-300"
+                      className="inline-flex items-center rounded-full bg-gray-200/50 border border-gray-300/50 px-3 py-1 text-sm font-medium text-gray-700 hover:bg-gray-300/50 hover:border-gray-400/50 transition-all duration-300"
                     >
                       {tech}
                     </span>
@@ -179,7 +179,7 @@ const Projects = () => {
                     </a>
                   ) : (
                     <div className="flex items-center space-x-3">
-                      <span className="inline-flex items-center rounded-full bg-gray-800/50 dark:bg-gray-800/50 light:bg-gray-200/50 border border-gray-700/50 dark:border-gray-700/50 light:border-gray-300/50 px-4 py-2 text-sm font-medium text-gray-400 dark:text-gray-400 light:text-gray-600">
+                      <span className="inline-flex items-center rounded-full bg-gray-200/50 border border-gray-300/50 px-4 py-2 text-sm font-medium text-gray-600">
                         Internal Project
                       </span>
                       <button
@@ -202,7 +202,7 @@ const Projects = () => {
         <FadeIn delay={0.6}>
           <div className="text-center mt-16">
             <SlideUp delay={0.7}>
-              <p className="text-xl text-gray-400 dark:text-gray-400 light:text-gray-600 mb-8">
+              <p className="text-xl text-gray-600 mb-8">
                 Interested in collaborating or learning more about my work?
               </p>
               <button

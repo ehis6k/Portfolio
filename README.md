@@ -11,19 +11,21 @@ Visit the live portfolio at: gabrieluwaila.com
 This portfolio website represents my journey as a developer and content creator. It features:
 
 - **Personal Branding**: Professional presentation of my skills, experience, and projects
-- **Modern Design**: Sleek, dark-themed interface with smooth animations
+- **Modern Design**: Elegant light-themed interface with teal and gold accents
 - **Responsive Layout**: Optimized for all devices and screen sizes
 - **Performance Focused**: Built with Next.js 15 and optimized for speed
 
 ## 🛠️ Tech Stack
 
 ### Core Technologies
-- **Framework**: Next.js 15.4.4 with Turbopack
-- **Frontend**: React 19.1.0 with TypeScript
-- **Styling**: Tailwind CSS 4 with custom animations
+- **Framework**: Next.js 15.5.9 with Turbopack
+- **Frontend**: React 19.1.1 with TypeScript 5
+- **Styling**: Tailwind CSS 4 with custom animations and design tokens
 - **Animations**: Framer Motion 12.23.11
-- **Icons**: Lucide React
+- **Icons**: Lucide React 0.532.0
 - **UI Components**: Radix UI primitives
+- **Forms**: React Hook Form 7.62.0 with Zod 4.1.5 validation
+- **Email**: EmailJS for contact form integration
 
 ### Development Tools
 - **Language**: TypeScript 5
@@ -34,17 +36,16 @@ This portfolio website represents my journey as a developer and content creator.
 ## ✨ Features
 
 ### 🎨 Design & UX
-- **Dark Theme**: Elegant dark color scheme with gradient accents
+- **Light Theme**: Clean, modern light color scheme with teal and gold accents
 - **Smooth Animations**: Framer Motion powered transitions and micro-interactions
-- **Glass Morphism**: Modern glass effects and backdrop blur
+- **Glass Morphism**: Subtle glass effects with backdrop blur on navigation
 - **Responsive Design**: Mobile-first approach with adaptive layouts
+- **Accessibility**: Full keyboard navigation, ARIA labels, and reduced motion support
 
-### 📱 Sections
-- **Hero**: Dynamic introduction with floating elements and tech stack showcase
-- **About**: Personal story, professional experience, and core values
-- **Skills**: Organized technical skills with visual categorization
-- **Projects**: Featured projects including Fujifilm internship work
-- **Contact**: Professional contact information and social links
+### 📱 Pages
+- **Home (/)** - Main landing page with Hero, About, Experience, Skills, Projects, and Contact sections
+- **Services (/services)** - Service offerings page
+- **Contact (/contact)** - Contact form page
 
 ### 🔧 Technical Features
 - **Type Safety**: Full TypeScript implementation
@@ -55,36 +56,26 @@ This portfolio website represents my journey as a developer and content creator.
 
 ## 🏗️ Project Structure
 
-```
+```text
 Portfolio/
 ├── src/
 │   ├── app/                    # Next.js app directory
-│   │   ├── globals.css         # Global styles and Tailwind
-│   │   ├── layout.tsx          # Root layout component
+│   │   ├── api/cv/             # CV download endpoint
+│   │   ├── contact/            # Contact page
+│   │   ├── services/           # Services page
+│   │   ├── globals.css         # Global styles and color scheme
+│   │   ├── layout.tsx          # Root layout
 │   │   └── page.tsx            # Home page
 │   ├── components/
-│   │   ├── layout/             # Layout components
-│   │   │   ├── Header.tsx      # Navigation header
-│   │   │   ├── Footer.tsx      # Site footer
-│   │   │   └── Layout.tsx      # Main layout wrapper
-│   │   ├── sections/           # Page sections
-│   │   │   ├── Hero.tsx        # Hero section with intro
-│   │   │   ├── About.tsx       # About me section
-│   │   │   ├── Skills.tsx      # Skills showcase
-│   │   │   ├── Projects.tsx    # Projects portfolio
-│   │   │   └── Contact.tsx     # Contact information
+│   │   ├── hero/               # Hero section components
+│   │   ├── layout/             # Layout components (Header, Footer, Navbar)
+│   │   ├── sections/           # Page sections (About, Experience, Skills, etc.)
+│   │   ├── shared/             # Shared components (TechTicker)
 │   │   └── ui/                 # Reusable UI components
-│   │       ├── animated-components.tsx  # Animation wrappers
-│   │       ├── badge.tsx       # Badge component
-│   │       ├── card.tsx        # Card component
-│   │       ├── sheet.tsx       # Sheet/drawer component
-│   │       └── scroll-to-top.tsx       # Scroll to top button
-│   ├── contexts/               # React contexts
-│   └── lib/
-│       └── utils.ts            # Utility functions
-├── public/                     # Static assets
-├── components.json             # Shadcn/ui configuration
-└── package.json               # Dependencies and scripts
+│   ├── data/                   # Data files (experience, projects, skills, etc.)
+│   └── lib/                    # Utility functions and integrations
+├── public/assets/              # Static image assets
+└── resources/                  # Project resources (CV, etc.)
 ```
 
 ## 🚀 Getting Started
@@ -139,15 +130,14 @@ Portfolio/
 - **Music**: Bass guitar and drums
 - **Innovation**: Passion for cutting-edge technology and creative solutions
 
-## 🎨 Design Philosophy
+## 🎨 Design & Color Scheme
 
-The portfolio embodies a **modern minimalist** approach with:
-
-- **Dark-first Design**: Elegant dark theme with strategic use of gradients
-- **Micro-interactions**: Subtle animations that enhance user experience
-- **Typography**: Clean, readable fonts with proper hierarchy
-- **Spacing**: Generous whitespace for visual breathing room
-- **Color Palette**: Blue/indigo accents against dark backgrounds
+**Modern minimalist** light theme with:
+- **Base**: `#f8f9fa` (Off-white background), `#ffffff` (White surfaces)
+- **Text**: `#111827` (High), `#64748b` (Muted), `#1a1a1a` (Headings)
+- **Accents**: `#00d4aa` (Teal - primary), `#ffd700` (Gold - secondary)
+- **Design**: Light-first, subtle animations, accessibility-focused
+- Colors defined in `globals.css` with CSS variables and Tailwind utilities
 
 ## 📈 Performance
 
@@ -160,11 +150,12 @@ The portfolio embodies a **modern minimalist** approach with:
 ## 🔮 Future Enhancements
 
 - [ ] Blog integration for tech articles
-- [ ] Dark/light mode toggle
+- [ ] Dark/light mode toggle (theme switching)
 - [ ] Interactive project demos
-- [ ] Contact form with backend integration
-- [ ] Multi-language support
+- [ ] Multi-language support (i18n)
 - [ ] Advanced animations and 3D elements
+- [ ] Analytics integration
+- [ ] SEO improvements with structured data
 
 ## 🤝 Contributing
 

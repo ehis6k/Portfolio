@@ -1,0 +1,189 @@
+{
+	"meta": {
+		"generatedAt": "2026-01-10T16:01:16.617Z",
+		"tasksAnalyzed": 22,
+		"totalTasks": 27,
+		"analysisCount": 22,
+		"thresholdScore": 5,
+		"projectName": "Task Master",
+		"usedResearch": true
+	},
+	"complexityAnalysis": [
+		{
+			"taskId": 6,
+			"taskTitle": "Migrate and create structured data files",
+			"complexityScore": 6.5,
+			"recommendedSubtasks": 0,
+			"expansionPrompt": "Review Task 6 and confirm whether any additional data domains (e.g., testimonials, blog posts) or internationalization requirements need to be modeled; if so, enumerate them as new typed data modules and describe their minimal schemas and migration steps.",
+			"reasoning": "Moderate complexity due to multi-entity data modeling (profile, experience, skills, projects), TypeScript typing, and content extraction from an existing site, plus ordering and image path constraints. Existing subtasks 1–5 already decompose schema setup, migration, skills modeling, projects deep-dive fields, and validation harness, so further subdivision would add overhead rather than clarity."
+		},
+		{
+			"taskId": 7,
+			"taskTitle": "Audit and map existing assets to data layer",
+			"complexityScore": 5,
+			"recommendedSubtasks": 3,
+			"expansionPrompt": "Break Task 7 into: (1) asset inventory and naming strategy, (2) data-to-asset reconciliation and path updates across profile/projects, (3) layout/aspect-ratio validation and alt-text/accessibility checks. For each subtask, specify the concrete files to touch, decision rules for renaming or duplicating assets, and how to verify correctness programmatically or via a simple debug view.",
+			"reasoning": "Work is mostly mechanical but touches filesystem, data layer, and layout behavior, with a risk of subtle visual regressions and broken links. Splitting by discovery (inventory), mapping (data updates), and visual/accessibility validation will make it easier to parallelize and re-run checks."
+		},
+		{
+			"taskId": 8,
+			"taskTitle": "Implement UI Button component",
+			"complexityScore": 4,
+			"recommendedSubtasks": 2,
+			"expansionPrompt": "Decompose Task 8 into: (1) implement base Button with variants, sizes, and Tailwind design tokens wired to `cn`, (2) integrate `asChild`/Radix Slot and verify usage with Next Link plus accessibility and focus behavior. For each, outline props typing decisions, default props, and how to expose Button in a small internal demo or Storybook story.",
+			"reasoning": "Technically straightforward React + Tailwind atom with some nuance around `asChild`, focus styles, and type safety. Two phases (base implementation vs. composition/integration) are enough to manage risk without over-fragmentation."
+		},
+		{
+			"taskId": 9,
+			"taskTitle": "Implement Badge and Tag UI components",
+			"complexityScore": 3.5,
+			"recommendedSubtasks": 1,
+			"expansionPrompt": "Create a single subtask that covers implementing the Badge component with all visual variants and then validating accessibility (contrast, size, semantics) and responsive wrapping behavior in a simple demo grid or Storybook story.",
+			"reasoning": "Simple, mostly presentational span-based component using Tailwind variants. Main complexity is ensuring consistent tokens and accessibility; a light split to separate implementation from visual/a11y validation is sufficient if desired, but more granularity is unnecessary."
+		},
+		{
+			"taskId": 10,
+			"taskTitle": "Implement Card UI component",
+			"complexityScore": 4.5,
+			"recommendedSubtasks": 1,
+			"expansionPrompt": "Add one subtask focused on integrating Card primitives into at least two real use cases (e.g., Experience items and Project cards), documenting any needed API adjustments (padding, header/footer patterns) and ensuring hover/motion behaviors remain consistent and performant.",
+			"reasoning": "Base Card primitives are straightforward, but they have cross-cutting impact as structural building blocks. A follow-up integration subtask helps validate the API against real layouts and catches spacing/interaction issues early without needing many fine-grained tasks."
+		},
+		{
+			"taskId": 11,
+			"taskTitle": "Create typography components and scale",
+			"complexityScore": 5,
+			"recommendedSubtasks": 2,
+			"expansionPrompt": "Split Task 11 into: (1) implement core typography primitives (H1, H2, H3, Lead, Body) and map them to Tailwind tokens and responsive sizes, (2) refactor existing pages/sections to adopt these components, verifying heading hierarchy, single-H1 constraint, and max-width/measure across the app.",
+			"reasoning": "Designing the type scale and components is moderate complexity given responsiveness and semantics, and refactoring existing usage can be non-trivial. Separating definition from adoption makes it easier to review and adjust the scale while keeping migration manageable."
+		},
+		{
+			"taskId": 12,
+			"taskTitle": "Implement Navbar layout component",
+			"complexityScore": 6,
+			"recommendedSubtasks": 3,
+			"expansionPrompt": "Break Task 12 into: (1) implement desktop Navbar structure and styling (branding, section links, resume CTA) using existing Button/typography tokens, (2) add sticky behavior and spacing adjustments so content is not obscured, (3) implement a minimal mobile navigation pattern (stacked links or simple menu icon) and validate accessibility (hit areas, focus order, aria attributes).",
+			"reasoning": "Navbar spans layout, navigation, and accessibility concerns, plus responsive design. Explicit subtasks for desktop layout, sticky behavior, and mobile menu keep each concern focused and make QA of scroll/anchor behavior easier."
+		},
+		{
+			"taskId": 13,
+			"taskTitle": "Implement Footer and Now/Next widget",
+			"complexityScore": 5,
+			"recommendedSubtasks": 2,
+			"expansionPrompt": "Create two subtasks: (1) implement Footer layout and wire profile-based social links and copyright, (2) implement and style the Now/Next widget bound to profile data, ensuring it remains responsive and semantically structured (lists/definition list) and can be optionally reused as a side widget on larger screens.",
+			"reasoning": "Footer itself is simple, but coupling to the data layer for the Now/Next widget and potential reuse introduces moderate complexity. A small split between base footer and data-driven widget keeps responsibilities clear."
+		},
+		{
+			"taskId": 14,
+			"taskTitle": "Compose main layout shell in RootLayout",
+			"complexityScore": 5.5,
+			"recommendedSubtasks": 2,
+			"expansionPrompt": "Break Task 14 into: (1) implement semantic RootLayout shell with Navbar, main, Footer, and skip link, (2) add and validate any optional background motif or global styling, checking for performance and readability impacts across pages.",
+			"reasoning": "Integrating global layout is moderate complexity because it touches every page, interacts with app router semantics, and affects accessibility. Distinguishing core shell/landmarks from optional background visuals helps isolate potential regressions."
+		},
+		{
+			"taskId": 15,
+			"taskTitle": "Build Hero section component",
+			"complexityScore": 7,
+			"recommendedSubtasks": 0,
+			"expansionPrompt": "Review existing Hero subtasks and, if needed, add a brief checklist around data-contract stability (profile schema, topTech location) and dependency readiness (Button, Badge, Typography, assets) before implementation begins.",
+			"reasoning": "Hero is relatively complex: data-driven, highly visual, responsive, and CTA-heavy, plus accessibility and performance (Next Image) concerns. The task is already decomposed into five well-scoped subtasks covering data contract, layout, content binding, CTAs/image, and polish, so no extra top-level subtasks are necessary."
+		},
+		{
+			"taskId": 16,
+			"taskTitle": "Build Experience section component",
+			"complexityScore": 6.5,
+			"recommendedSubtasks": 2,
+			"expansionPrompt": "Decompose Task 16 into: (1) design data-driven splitting of work vs education (filter/sort logic, highlighting Fujifilm) and base layout using Card/Badge/typography, (2) add optional timeline visuals (vertical line, icons) and refine responsiveness and accessibility (lists, headings, icon semantics).",
+			"reasoning": "Moderate-to-high complexity from data partitioning, ordering constraints (Fujifilm on top), and a richer visual layout (two-column, timeline styling). Splitting logical data handling from visual embellishments keeps the core stable while allowing iterative refinement of the timeline UX."
+		},
+		{
+			"taskId": 17,
+			"taskTitle": "Build Skills grid section component",
+			"complexityScore": 5.5,
+			"recommendedSubtasks": 2,
+			"expansionPrompt": "Split Task 17 into: (1) wire skills data model into a basic grid of Card components with category name and description, (2) add tools-as-badges rendering, responsive column tweaks, and copy refinement to ensure categories emphasize usage context rather than a flat logo list.",
+			"reasoning": "Complexity centers on mapping structured skills data into a responsive, text-focused layout while avoiding visual clutter. Two passes—data/layout first, then badges and UX polish—are sufficient for control without overplanning."
+		},
+		{
+			"taskId": 18,
+			"taskTitle": "Implement ProjectCard component for archive grid",
+			"complexityScore": 7,
+			"recommendedSubtasks": 2,
+			"expansionPrompt": "Decompose Task 18 into: (1) implement a static ProjectCard using Card, Badge, Button, and Next Image with proper typing and status/links behavior, (2) integrate framer-motion hover animations and validate performance, accessibility (reduced motion preference), and layout consistency when used in a grid.",
+			"reasoning": "Above-average complexity because the component composes multiple primitives, consumes relatively rich project data, and introduces motion (framer-motion) plus responsive images. Isolating core rendering from animation/perf tuning helps manage risk."
+		},
+		{
+			"taskId": 19,
+			"taskTitle": "Implement Featured Case Study layout for Asset Management System",
+			"complexityScore": 8,
+			"recommendedSubtasks": 0,
+			"expansionPrompt": "Use the existing five subtasks as the execution plan; additionally, validate early that the Project type and caseStudy fields in the data layer are stable and complete, and document any assumptions about optional fields (e.g., architectureDiagram) to avoid null handling issues in the layout.",
+			"reasoning": "This is one of the most complex UI tasks: deep data shape, narrative structure, multi-column responsive layout, optional imagery, and CTA wiring, all tightly coupled to projects data. The task already has detailed subtasks covering data shape, base structure, narrative sections, visual column, and final polish; further subdivision would not materially reduce complexity."
+		},
+		{
+			"taskId": 20,
+			"taskTitle": "Build Project archive grid section",
+			"complexityScore": 5.5,
+			"recommendedSubtasks": 1,
+			"expansionPrompt": "Create a subtask dedicated to integrating ProjectCard into a responsive grid, handling featured filtering, and validating behavior with varying project counts (0, 1, many), including accessibility (aria-label, heading level) and breakpoint testing.",
+			"reasoning": "Moderate complexity: primarily composition and filtering around an already-complex ProjectCard, with some responsive layout and empty-state handling. A single focused subtask on grid integration and edge cases is enough to ensure robustness."
+		},
+		{
+			"taskId": 21,
+			"taskTitle": "Create Home page assembly (page.tsx)",
+			"complexityScore": 6,
+			"recommendedSubtasks": 0,
+			"expansionPrompt": "Leverage the existing five subtasks; optionally add a short checklist around cross-section narrative review (order, heading labels, CTAs) and verifying that all section IDs match Navbar anchors and scroll-margin behavior from the micro-interactions task.",
+			"reasoning": "Complexity comes from orchestration rather than implementation—ensuring all sections compose correctly, IDs align with navigation, and overall narrative and performance are acceptable. The task already has fine-grained subtasks for file setup, imports, composition order, ID alignment, and final UX/perf validation, so further breakdown is not needed."
+		},
+		{
+			"taskId": 22,
+			"taskTitle": "Implement smooth scrolling and anchor micro-interactions",
+			"complexityScore": 4.5,
+			"recommendedSubtasks": 1,
+			"expansionPrompt": "Add a subtask that explicitly covers cross-browser testing and tuning of `scroll-margin-top` per section (especially those with different top padding), verifying behavior with the sticky Navbar on various viewport sizes and ensuring users who prefer reduced motion can opt out if scripted motion is introduced later.",
+			"reasoning": "Core implementation is simple CSS, but subtle issues can appear with sticky headers, different section spacing, and browser differences. One focused testing/tuning subtask is enough to catch these without overcomplicating planning."
+		},
+		{
+			"taskId": 23,
+			"taskTitle": "Optimize SEO metadata and structured content",
+			"complexityScore": 6,
+			"recommendedSubtasks": 2,
+			"expansionPrompt": "Split Task 23 into: (1) configure Next.js metadata (title, description, Open Graph, canonical) and enforce heading hierarchy across sections, (2) implement and validate JSON-LD schema for Person and featured CreativeWork, including running it through a structured data testing tool and adjusting based on warnings.",
+			"reasoning": "SEO work is conceptually straightforward but crosses framework APIs (Next metadata), content strategy (headings), and schema.org JSON-LD. Separating general metadata/headings from schema markup makes it easier to iterate and test each independently."
+		},
+		{
+			"taskId": 24,
+			"taskTitle": "Ensure accessibility compliance",
+			"complexityScore": 8,
+			"recommendedSubtasks": 0,
+			"expansionPrompt": "Use the existing five subtasks as the accessibility work plan; consider adding a short checklist tying issues found during audits back to specific components (Navbar, Hero, cards, buttons) to ensure changes are tracked and not lost between passes.",
+			"reasoning": "High complexity because it spans the entire UI surface, requires both automated and manual techniques, and can uncover cross-cutting design and implementation issues. The task is already broken into thorough subtasks for keyboard nav, contrast, images, semantics, and final verification; more subdivision would mostly add project-management overhead."
+		},
+		{
+			"taskId": 25,
+			"taskTitle": "Performance optimization and Lighthouse tuning",
+			"complexityScore": 8,
+			"recommendedSubtasks": 0,
+			"expansionPrompt": "Rely on the existing five subtasks; optionally add a short decision log to capture trade-offs made (e.g., where dynamic imports were added, which images were compressed) so future changes can respect the performance budget and avoid regressions.",
+			"reasoning": "High complexity due to the need to interpret Lighthouse and Web Vitals, optimize images, JS bundles, and rendering strategies, and iterate until all categories exceed 90. The current subtask set already covers baseline auditing, images, JS, rendering strategy, and final tuning loop comprehensively."
+		},
+		{
+			"taskId": 26,
+			"taskTitle": "Finalize deployment to Vercel and production configuration",
+			"complexityScore": 5,
+			"recommendedSubtasks": 2,
+			"expansionPrompt": "Decompose Task 26 into: (1) set up Git repository, connect to Vercel, configure build/runtime settings, and verify a successful initial deployment on the default domain, (2) configure custom domain, HTTPS, and optional analytics/monitoring, followed by smoke-testing the live site (including Lighthouse runs) on multiple devices and networks.",
+			"reasoning": "Moderate complexity: mostly configuration and environment concerns with some DNS and production validation. Splitting initial project hookup from domain/observability setup clarifies responsibilities and sequencing."
+		},
+		{
+			"taskId": 27,
+			"taskTitle": "Create minimal automated tests and regression safeguards",
+			"complexityScore": 6,
+			"recommendedSubtasks": 3,
+			"expansionPrompt": "Break Task 27 into: (1) test infrastructure setup (Vitest/Jest, RTL, jsdom, scripts), (2) data-layer tests for projects/experience integrity (image paths, statuses, featured flag), (3) component tests for Hero and FeaturedProjectSection plus optional CI integration (GitHub Actions workflow) to run tests and lint on push/PR.",
+			"reasoning": "Moderate complexity: introduces a test runner in a Next/Tailwind stack and touches both data and UI. Clear separation between infra setup, data tests, and component tests (plus optional CI) helps avoid confusion and makes it easier to expand coverage later."
+		}
+	]
+}

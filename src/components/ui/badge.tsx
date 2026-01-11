@@ -4,17 +4,16 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const badgeVariants = cva(
-  "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+  "inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium transition-all duration-200",
   {
     variants: {
       variant: {
-        default:
-          "border-transparent bg-primary text-primary-foreground hover:bg-primary/80",
-        secondary:
-          "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        destructive:
-          "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
-        outline: "text-foreground",
+        default: "bg-slate-100 text-slate-900",
+        outline: "border border-border text-slate-700 bg-transparent",
+        featured: "bg-gold text-charcoal",
+        "status-completed": "bg-teal/10 text-[#00a888] border border-teal/40",
+        "status-in-progress":
+          "bg-slate-100 text-slate-700 border border-slate-300",
       },
     },
     defaultVariants: {
@@ -24,12 +23,22 @@ const badgeVariants = cva(
 )
 
 export interface BadgeProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof badgeVariants> {}
+  extends React.HTMLAttributes<HTMLSpanElement>,
+    VariantProps<typeof badgeVariants> {
+  /**
+   * Show a small dot indicator (useful for status-in-progress variant)
+   */
+  showDot?: boolean
+}
 
-function Badge({ className, variant, ...props }: BadgeProps) {
+function Badge({ className, variant, showDot, children, ...props }: BadgeProps) {
   return (
-    <div className={cn(badgeVariants({ variant }), className)} {...props} />
+    <span className={cn(badgeVariants({ variant }), className)} {...props}>
+      {variant === "status-in-progress" && showDot !== false && (
+        <span className="h-1.5 w-1.5 rounded-full bg-current opacity-75" aria-hidden="true" />
+      )}
+      {children}
+    </span>
   )
 }
 
