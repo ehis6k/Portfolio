@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { Code, ArrowRight, CheckCircle, Globe, Monitor, Smartphone, Plug, Wrench, LucideIcon } from 'lucide-react'
 import { FadeIn, SlideUp, StaggeredFadeIn } from '@/components/ui/animated-components'
-import { services, getSoftwareServices, type Service } from '@/lib/services'
+import { getSoftwareServices, type Service } from '@/lib/services'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
