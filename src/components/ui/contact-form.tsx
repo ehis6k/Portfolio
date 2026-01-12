@@ -37,9 +37,12 @@ const ContactForm = ({ className, hideHeader = false }: ContactFormProps) => {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [rateLimitMessage, setRateLimitMessage] = useState<string>('')
 
-  // Initialize EmailJS on component mount
+  // Initialize EmailJS on component mount (only in development or when needed)
   useEffect(() => {
-    initEmailJS()
+    // Only initialize if public key exists to avoid console errors
+    if (process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY) {
+      initEmailJS()
+    }
     // Track form start time for validation
     sessionStorage.setItem('form_start_time', Date.now().toString())
   }, [])
