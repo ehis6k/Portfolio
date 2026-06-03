@@ -1,10 +1,14 @@
 "use client";
 
+import { useState } from "react";
 import { projects } from "@/data/projects";
 import { H2, Lead } from "@/components/ui/typography";
 import { ProjectCard } from "@/components/ui/project-card";
+import { ProjectModal } from "@/components/ui/project-modal";
+import type { Project } from "@/data/types";
 
 export function ProjectArchiveSection() {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const secondary = projects.filter((p) => !p.featured);
 
   if (!secondary.length) {
@@ -23,11 +27,20 @@ export function ProjectArchiveSection() {
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {secondary.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+            <ProjectCard 
+              key={project.id} 
+              project={project} 
+              onClick={() => setSelectedProject(project)}
+            />
           ))}
         </div>
       </div>
+
+      <ProjectModal 
+        project={selectedProject} 
+        open={!!selectedProject} 
+        onOpenChange={(open) => !open && setSelectedProject(null)} 
+      />
     </section>
   );
 }
-

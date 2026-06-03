@@ -24,6 +24,7 @@ export const projects: Project[] = [
     image: "/assets/img/fujifilm/dev_work.jpeg",
     imageAlt:
       "Asset Management System interface displaying hardware asset catalog with search and filter functionality",
+    gallery: ["/assets/img/fujifilm/dev_work.jpeg"],
     featured: true,
     links: {
       // Internal project - no public demo
@@ -50,11 +51,60 @@ export const projects: Project[] = [
     },
   },
   {
+    id: "utonomy-mcp-servers",
+    name: "Utonomy MCP Servers",
+    slug: "utonomy-mcp-servers",
+    summary:
+      "Two production-deployed MCP servers built for Utonomy's Solid-based data platform — giving AI agents shared architectural context and privacy-first access to personal pod data.",
+    role: "Software Engineer Intern",
+    status: "in-progress",
+    tags: ["MCP", "AI Tooling", "Solid/RDF", "Production"],
+    stack: [
+      "TypeScript",
+      "Node.js",
+      "Fastify",
+      "MCP SDK",
+      "Solid/RDF",
+      "OAuth2/PKCE",
+      "Docker",
+      "Scaleway",
+      "GitHub Actions",
+    ],
+    image: "/assets/img/utonomy/utonomy_logo.jpeg",
+    imageAlt: "Utonomy logo — Solid-based personal data platform",
+    gallery: [
+      "/assets/img/utonomy/utonomy_logo.jpeg",
+      "/assets/img/utonomy/office_PC_coding.jpeg",
+      "/assets/img/utonomy/utrecht_scenery.jpeg",
+    ],
+    featured: false,
+    links: {},
+    caseStudy: {
+      problem:
+        "Utonomy's monorepo lacked shared architectural context for AI coding agents, and their Solid-based user pods had no privacy-first interface for AI clients to read/write personal data.",
+      constraints: [
+        "Must run as remote MCP servers consumable by Cursor, Claude Code, and other MCP clients",
+        "hive-mind: context must stay fresh via GitHub webhook-based refresh pipeline",
+        "u-mind: all data access must be consent-aware with automatic audit logging via existing ACL infrastructure",
+        "Deploy on Scaleway serverless containers with bearer auth middleware",
+        "Integrate with Utonomy's existing OAuth2 + PKCE identity provider",
+      ],
+      architecture:
+        "hive-mind is a remote MCP server built with Fastify and the MCP Streamable HTTP SDK, exposing service documentation lookup/search tools and a GitHub webhook pipeline for context refresh. u-mind is a privacy-first personal context server that proxies Solid/RDF pod data to AI clients, enforcing OAuth2 + PKCE auth and routing all reads/writes through idp-server's existing ACL and DataAccessLog infrastructure. Both servers are containerised with Docker and deployed on Scaleway serverless containers via GitHub Actions CI/CD.",
+      results: [
+        "AI coding agents (Cursor, Claude Code) gain shared monorepo context via hive-mind, reducing onboarding friction",
+        "u-mind enables consent-aware AI access to personal data models (profile, shopping preferences) with full audit trail",
+        "Both servers deployed to Scaleway serverless containers with automated CI/CD",
+        "Bearer auth middleware and OAuth2/PKCE ensure secure, scoped access",
+      ],
+    },
+  },
+  {
     id: "bandit-games",
-    name: "BanditGames (Microservices Platform)",
+    name: "BanditGames",
     slug: "bandit-games",
     summary:
-      "Enterprise-level full-stack architecture with containerized microservices for gaming and AI.",
+      "Microservices gaming platform — enterprise-level full-stack architecture with containerized services for gaming and AI.",
     role: "Full-stack Developer",
     status: "completed",
     tags: ["Microservices", "AI/ML", "Full-stack"],
@@ -68,6 +118,7 @@ export const projects: Project[] = [
     image: "/assets/img/kdg/BanditGames.JPG",
     imageAlt:
       "BanditGames microservices architecture diagram showing backend, frontend, and AI services orchestration",
+    gallery: ["/assets/img/kdg/BanditGames.JPG"],
     featured: false,
     links: {
       github: "https://github.com/ehis6k",
@@ -92,6 +143,7 @@ export const projects: Project[] = [
     image: "/assets/img/adullam/adullam_dev.jpeg",
     imageAlt:
       "Adullam mobile app interface showing Bible journal entries and AI-powered insights",
+    gallery: ["/assets/img/adullam/adullam_dev.jpeg", "/assets/img/adullam/design.jpeg"],
     featured: false,
     links: {
       github: "https://github.com/ehis6k",

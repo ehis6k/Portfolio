@@ -46,7 +46,10 @@ export const TEMPLATE_PARAMS = {
 // Must be called before sending emails
 export const initEmailJS = () => {
   if (!EMAILJS_CONFIG.publicKey) {
-    console.error('EmailJS public key is not configured. Please set NEXT_PUBLIC_EMAILJS_PUBLIC_KEY in your .env.local file.')
+    // Only log in development to reduce console noise
+    if (process.env.NODE_ENV === 'development') {
+      console.warn('EmailJS public key is not configured. Please set NEXT_PUBLIC_EMAILJS_PUBLIC_KEY in your .env.local file.')
+    }
     return false
   }
   emailjs.init(EMAILJS_CONFIG.publicKey)
@@ -200,8 +203,14 @@ export const validateEmailJSConfig = (): boolean => {
   if (!EMAILJS_CONFIG.publicKey) missing.push('NEXT_PUBLIC_EMAILJS_PUBLIC_KEY')
   
   if (missing.length > 0) {
-    const errorMessage = `Missing required EmailJS environment variables: ${missing.join(', ')}\n\nPlease create a .env.local file in your project root with:\n${missing.map(key => `${key}=your_value_here`).join('\n')}\n\nNote: The .env.local file is already in .gitignore and will not be committed to version control.`
-    console.error(errorMessage)
+    // Only log detailed error in development to reduce console noise
+    if (process.env.NODE_ENV === 'development') {
+      const errorMessage = `Missing required EmailJS environment variables: ${missing.join(', ')}\n\nPlease create a .env.local file in your project root with:\n${missing.map(key => `${key}=your_value_here`).join('\n')}\n\nNote: The .env.local file is already in .gitignore and will not be committed to version control.\n\nSee .env.example for a template.`
+      console.error(errorMessage)
+    } else {
+      // In production, log a minimal error
+      console.error('EmailJS is not configured. Form submissions will fail.')
+    }
     return false
   }
   

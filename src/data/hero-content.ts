@@ -26,8 +26,8 @@ export interface HeroContent {
 export const heroContent: HeroContent = {
   headline: "Engineering Scalable Backends & Interactive Systems.",
   subheadline:
-    "Final-year Computer Science student and IT Staff at **Fujifilm**. I bridge the gap between complex system architecture and responsive frontend experiences.",
-  status: "Currently: Final Year CS student and Student Software Developer",
+    "CS graduate and Software Engineer Intern at **Utonomy**. I bridge the gap between complex system architecture and responsive frontend experiences.",
+  status: "Currently: CS New Grad · Software Engineer Intern @ Utonomy",
   ctas: [
     {
       label: "View Projects",
@@ -41,7 +41,7 @@ export const heroContent: HeroContent = {
     },
   ],
   profileImage: {
-    src: "/assets/img/profile/fuji_work_bg_removed.png",
+    src: "/assets/img/profile/new_profile_pic.jpeg",
     alt: "Portrait of Gabriel Uwaila, Final-year CS student and IT Staff at Fujifilm",
   },
 };

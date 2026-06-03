@@ -53,6 +53,8 @@ export interface Project {
   stack: string[];
   image: string; // Path to image in public/assets/img, e.g., "/assets/img/ams.png"
   imageAlt: string;
+  gallery?: string[]; // Array of paths to images for the carousel
+  modalDetails?: string; // Optional detailed text for the modal
   featured?: boolean;
   links: {
     github?: string;

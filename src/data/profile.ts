@@ -5,8 +5,8 @@ export const profile: Profile = {
   role: "Full‑stack / Backend Engineer",
   location: "Belgium",
   summary:
-    "Final-year Computer Science student, Fujifilm intern, and aspiring full-stack developer passionate about creating innovative digital solutions.",
-  profileImage: "/assets/img/profile/profile_pic.jpeg",
+    "CS graduate and Software Engineer Intern at Utonomy, passionate about building production-grade backend systems, MCP tooling, and full-stack applications.",
+  profileImage: "/assets/img/profile/new_profile_pic.jpeg",
   now: "Building an asset management platform at Fujifilm with .NET 9.",
   next: "Exploring distributed systems and cloud-native architectures.",
   learning: "Learning Rust, advanced Spring Boot, and DDD.",
