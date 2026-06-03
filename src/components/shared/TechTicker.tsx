@@ -12,16 +12,25 @@ const defaultTechStack = [
   'Java / Spring Boot',
   'React / Next.js',
   'C# / .NET',
+  'TypeScript / Node.js',
+  'Fastify',
+  'MCP SDK',
+  'Solid / RDF',
+  'OAuth2 / PKCE',
   'RabbitMQ',
   'Docker',
   'Kubernetes',
+  'Scaleway',
+  'GitHub Actions',
   'PostgreSQL',
   'Redis',
   'MongoDB',
+  'LangChain',
+  'Zod',
+  'pnpm / Turborepo',
+  'REST APIs',
   'Git',
   'TypeScript',
-  'REST APIs',
-  'GraphQL'
 ];
 
 export default function TechTicker({ items = defaultTechStack, className }: TechTickerProps) {

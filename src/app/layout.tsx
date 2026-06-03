@@ -5,7 +5,6 @@ import "./globals.css";
 import ThemeProvider from "@/components/ThemeProvider";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/Footer";
-import Snow from "@/components/ui/snow";
 import { profile } from "@/data/profile";
 import { projects } from "@/data/projects";
 
@@ -161,7 +160,6 @@ export default function RootLayout({
         }}
       >
         <ThemeProvider>
-          <Snow />
           {/* Skip to content link for accessibility */}
           <a
             href="#main"
