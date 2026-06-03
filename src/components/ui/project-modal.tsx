@@ -34,7 +34,10 @@ export function ProjectModal({ project, open, onOpenChange }: ProjectModalProps)
           <div className="col-span-1 p-6 lg:p-8 flex flex-col h-full overflow-y-auto border-b lg:border-b-0 lg:border-r border-border/50 bg-[#ffffff]">
             <DialogHeader className="p-0 mb-6 text-left">
               <div className="flex flex-wrap gap-2 mb-3">
-                <Badge variant={project.status === "completed" ? "default" : "secondary"}>
+                <Badge
+                  variant={project.status === "completed" ? "status-completed" : "status-in-progress"}
+                  showDot={project.status === "in-progress"}
+                >
                   {project.status === "completed" ? "Completed" : "In Progress"}
                 </Badge>
                 {project.tags.map((tag) => (
@@ -67,7 +70,7 @@ export function ProjectModal({ project, open, onOpenChange }: ProjectModalProps)
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {project.stack.map((tech) => (
-                    <Badge key={tech} variant="secondary" className="bg-slate-100 text-slate-700 hover:bg-slate-200">
+                    <Badge key={tech} variant="default" className="bg-slate-100 text-slate-700 hover:bg-slate-200">
                       {tech}
                     </Badge>
                   ))}
