@@ -57,7 +57,7 @@ export const projects: Project[] = [
     summary:
       "Two production-deployed MCP servers built for Utonomy's Solid-based data platform — giving AI agents shared architectural context and privacy-first access to personal pod data.",
     role: "Software Engineer Intern",
-    status: "in-progress",
+    status: "completed",
     tags: ["MCP", "AI Tooling", "Solid/RDF", "Production"],
     stack: [
       "TypeScript",

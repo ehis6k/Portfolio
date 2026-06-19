@@ -70,7 +70,7 @@ export function ProjectModal({ project, open, onOpenChange }: ProjectModalProps)
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {project.stack.map((tech) => (
-                    <Badge key={tech} variant="default" className="bg-slate-100 text-slate-700 hover:bg-slate-200">
+                    <Badge key={tech} variant="outline" className="bg-slate-100 text-slate-700 hover:bg-slate-200">
                       {tech}
                     </Badge>
                   ))}
